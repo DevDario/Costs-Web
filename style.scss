@@ -1,3 +1,23 @@
+// Colors and others
+
+$main-color:#0f0f0f;
+$text-color:#fcfcfb;
+$grey-white:#fcfcfb;
+$main-color-lighter:#181818;
+$main-color-darker:#0c0c0c;
+$secondary-color: #a61cdd;
+$secondary-color-darker:#72018f;
+$gradient:linear-gradient($secondary-color,#ff40b6,#ffd95d);
+
+// measures and constant values~
+$border-radius:10px;
+$section-padding:3em;
+$button-padding:15px 60px;
+$bg-text:30px;
+$m-text:24px;
+$sm-text:16px;
+
+
 *{
     margin: 0;
     padding: 0;
@@ -6,7 +26,7 @@
 }
 
 body{
-    background-color: #fcfcfb;
+    background-color: $grey-white;
     display: grid;
     grid-template-columns: 30% 70%;
     row-gap: 10px;
@@ -24,10 +44,10 @@ a{
 // aside section
 
 .aside-section{
-    background-color: #000416;
-    padding: 3em;
+    background-color: $main-color;
+    padding: $section-padding;
     height: 100vh;
-    border-right: 2px solid #7d16a5;
+    border-right: 4px solid $main-color-lighter;
 
     .container{
         display: flex;
@@ -44,12 +64,13 @@ a{
             .navigation-menu-option{
                 font-weight: 600;
                 padding: 15px;
-                border-radius: 10px;
-                background-color: #01051d;
+                border-radius:$border-radius;
+                background-color: $main-color-lighter;
                 cursor: pointer;
 
                 a{
-                    color: #fcfcfb;
+                    color: $text-color;
+                    cursor: alias;
                 }
             }
         }
@@ -59,7 +80,7 @@ a{
 // main section
 
 .main-section{
-    padding: 2em 3em;
+    padding: 2em $section-padding;
 
     .navbar{
         display: flex;
@@ -67,9 +88,9 @@ a{
         align-items: center;
         justify-content: space-between;
         margin: 0 auto;
-        background-color: #f8f8f8;
+        background-color: $main-color;
         padding: 20px;
-        border-radius: 10px;
+        border-radius: $border-radius;
     }
 
     .container{
@@ -78,20 +99,20 @@ a{
 
         .main-image{
             width: 50%;
-            border-radius: 10px;
+            border-radius: $border-radius;
         }
 
         .main-text{
-            font-size: 30px;
-            color: #212121;
+            font-size: $bg-text;
+            color: $main-color-lighter;
         }
 
         .main-button{
-            border:2px solid #a61cdd;
-            padding: 15px 60px;
-            border-radius: 10px;
-            color: #fcfcfb;
-            background-color: #7d16a5;
+            border:2px solid $secondary-color;
+            padding: $button-padding;
+            border-radius:$border-radius;
+            color: $text-color;
+            background-color: $main-color;
             font-weight: 600;
             cursor: pointer;
             margin-top: 2.2em;
