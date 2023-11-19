@@ -17,6 +17,13 @@ $bg-text:30px;
 $m-text:24px;
 $sm-text:16px;
 
+// mixins/functions
+
+@mixin gradientOnHover(){
+    transition: all 800ms ease-in-out;
+    background: $gradient;
+}
+
 
 *{
     margin: 0;
@@ -67,7 +74,7 @@ a{
                 border-radius:$border-radius;
                 background-color: $main-color-lighter;
                 cursor: pointer;
-                transition: all 800ms ease-in-out;
+                transition: all 900ms ease-out;
 
                 a{
                     color: $text-color;
@@ -76,7 +83,7 @@ a{
             }
 
             .navigation-menu-option:hover{
-                transition: all 800ms ease-in-out;
+                @include gradientOnHover();
                 background: $gradient;
             }
         }
