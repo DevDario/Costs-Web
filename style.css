@@ -43,10 +43,15 @@ a {
   border-radius: 10px;
   background-color: #181818;
   cursor: pointer;
+  transition: all 800ms ease-in-out;
 }
 .aside-section .container .navigation-menu-list .navigation-menu-option a {
   color: #fcfcfb;
   cursor: alias;
+}
+.aside-section .container .navigation-menu-list .navigation-menu-option:hover {
+  transition: all 800ms ease-in-out;
+  background: linear-gradient(60deg, #0f0f0f, #181818, #0c0c0c, #252525);
 }
 
 .main-section {

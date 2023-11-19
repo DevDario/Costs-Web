@@ -7,9 +7,9 @@ $main-color-lighter:#181818;
 $main-color-darker:#0c0c0c;
 $secondary-color: #a61cdd;
 $secondary-color-darker:#72018f;
-$gradient:linear-gradient($secondary-color,#ff40b6,#ffd95d);
+$gradient:linear-gradient(60deg,$main-color,$main-color-lighter,$main-color-darker,#252525);
 
-// measures and constant values~
+// measures and constant values
 $border-radius:10px;
 $section-padding:3em;
 $button-padding:15px 60px;
@@ -67,11 +67,17 @@ a{
                 border-radius:$border-radius;
                 background-color: $main-color-lighter;
                 cursor: pointer;
+                transition: all 800ms ease-in-out;
 
                 a{
                     color: $text-color;
                     cursor: alias;
                 }
+            }
+
+            .navigation-menu-option:hover{
+                transition: all 800ms ease-in-out;
+                background: $gradient;
             }
         }
     }
