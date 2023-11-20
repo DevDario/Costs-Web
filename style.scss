@@ -117,6 +117,10 @@ a{
             transition: all 600ms ease-in;
             border: 2px solid $main-color-lighter;
         }
+
+        .logo{
+            color: $text-color;
+        }
     }
 
     .container{
