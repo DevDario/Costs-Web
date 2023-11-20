@@ -135,6 +135,7 @@ a{
             align-items: center;
             width: 40%;
             border-radius: $border-radius;
+            filter: grayscale(100%);
         }
 
         .main-text{

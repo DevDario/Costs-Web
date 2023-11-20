@@ -94,6 +94,7 @@ a {
   align-items: center;
   width: 40%;
   border-radius: 10px;
+  filter: grayscale(100%);
 }
 .main-section .container .main-text {
   font-size: 30px;
