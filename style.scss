@@ -111,7 +111,9 @@ a{
         margin-top: 5em;
 
         .main-image{
-            width: 50%;
+            display: flex;
+            align-items: center;
+            width: 40%;
             border-radius: $border-radius;
         }
 
@@ -128,7 +130,7 @@ a{
             background-color: $main-color;
             font-weight: 600;
             cursor: pointer;
-            margin-top: 2.2em;
+            margin-top: 1em;
         }
     }
 }

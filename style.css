@@ -73,7 +73,9 @@ a {
   margin-top: 5em;
 }
 .main-section .container .main-image {
-  width: 50%;
+  display: flex;
+  align-items: center;
+  width: 40%;
   border-radius: 10px;
 }
 .main-section .container .main-text {
@@ -88,5 +90,5 @@ a {
   background-color: #0f0f0f;
   font-weight: 600;
   cursor: pointer;
-  margin-top: 2.2em;
+  margin-top: 1em;
 }/*# sourceMappingURL=style.css.map */
