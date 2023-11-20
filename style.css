@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", Coolvetica, sans-serif;
+  font-family: Chivo, sans-serif;
 }
 
 body {
@@ -38,7 +38,7 @@ a {
   gap: 30px;
 }
 .aside-section .container .navigation-menu-list .navigation-menu-option {
-  font-weight: 600;
+  font-weight: 500;
   padding: 15px;
   border-radius: 10px;
   background-color: #181818;

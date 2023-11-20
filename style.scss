@@ -29,7 +29,7 @@ $sm-text:16px;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins',Coolvetica, sans-serif;
+    font-family: Chivo, sans-serif;
 }
 
 body{
@@ -69,7 +69,7 @@ a{
             gap: 30px;
 
             .navigation-menu-option{
-                font-weight: 600;
+                font-weight: 500;
                 padding: 15px;
                 border-radius:$border-radius;
                 background-color: $main-color-lighter;
