@@ -68,6 +68,17 @@ a {
   padding: 20px;
   border-radius: 10px;
 }
+.main-section .navbar .navbar-logo {
+  cursor: pointer;
+  border: 2px solid #fcfcfb;
+  padding: 2px;
+  border-radius: 20px;
+  transition: all 600ms ease-out;
+}
+.main-section .navbar .navbar-logo:hover {
+  transition: all 600ms ease-in;
+  border: 2px solid #181818;
+}
 .main-section .container {
   display: block;
   margin-top: 5em;

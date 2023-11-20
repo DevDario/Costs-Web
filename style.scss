@@ -104,6 +104,19 @@ a{
         background-color: $main-color;
         padding: 20px;
         border-radius: $border-radius;
+
+        .navbar-logo{
+            cursor: pointer;
+            border: 2px solid $grey-white;
+            padding: 2px;
+            border-radius: 20px;
+            transition: all 600ms ease-out;
+        }
+
+        .navbar-logo:hover{
+            transition: all 600ms ease-in;
+            border: 2px solid $main-color-lighter;
+        }
     }
 
     .container{
