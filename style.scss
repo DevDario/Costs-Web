@@ -13,6 +13,7 @@ $gradient:linear-gradient(60deg,$main-color,$main-color-lighter,$main-color-dark
 $border-radius:10px;
 $section-padding:3em;
 $button-padding:15px 60px;
+$input-padding:15px 60px;
 $bg-text:30px;
 $m-text:24px;
 $sm-text:16px;
@@ -56,6 +57,15 @@ a{
     background-color: $main-color;
     font-weight: 300;
     cursor: pointer;
+    margin-top: 1em;
+}
+
+.input{
+    border:2px solid $secondary-color;
+    padding: $input-padding;
+    border-radius: $border-radius;
+    color: $text-color;
+    background-color: $grey-white;
     margin-top: 1em;
 }
 
