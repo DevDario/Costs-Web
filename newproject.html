@@ -9,14 +9,14 @@
     while managing a project. Start using it now.">
     <meta name="keywords" content="Costs, Project Managment System, Project Managment, Managment
     Web System, System">
-    <title>Costs - Your Project Manager</title>
+    <title>New Project | Costs</title>
 </head>
 <body>
     <aside class="aside-section">
         <div class="container">
             <ul class="navigation-menu-list">
                 <li class="navigation-menu-option">
-                    <a href="#">Home</a>
+                    <a href="index.html">Home</a>
                 </li>
                 <li class="navigation-menu-option">
                     <a href="newproject.html">New Project</a>
@@ -42,16 +42,27 @@
         </nav>
 
         <div class="container">
-            <img src="images/main-image.png" alt="Starting A Project" class="main-image" id="large-image">
-            <h1 class="main-text bg-text">
-                Keep on track on every change <br>
-                on your project.
-            </h1>
-            <a href="newproject.html">
-                <button class="main-button bg-button start-button button" id="start">
-                    New Project
-                </button>
-            </a>
+            <label for="name">Project's name</label>
+            
+            <input type="text" name="name" id="project-name">
+            
+            <label for="budget">Project's Budget</label>
+            
+            <input type="number" name="budget" id="project-budget">
+            
+            <select name="category" id="category" class="project-category">
+                
+                <option value="Infraestrutura" class="category-option">Infraestrutura</option>
+                
+                <option value="Desenvolvimento" class="category-option">Desenvolvimento</option>
+                
+                <option value="Planeamento" class="category-option">Planeamento</option>
+                
+            </select>
+
+            <button class="create-project-button button" id="create-project">
+                Create Project
+            </button>
         </div>
     </main>
 </body>
