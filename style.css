@@ -31,7 +31,8 @@ a {
   margin-top: 1em;
 }
 
-.input {
+.input,
+.project-category {
   border: 2px solid #a61cdd;
   padding: 15px 60px;
   border-radius: 10px;
@@ -40,7 +41,12 @@ a {
   margin-top: 1em;
 }
 
+.project-category {
+  color: #181818;
+}
+
 .aside-section {
+  position: static;
   background-color: #0f0f0f;
   padding: 3em;
   height: 100vh;

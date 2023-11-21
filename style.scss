@@ -60,7 +60,8 @@ a{
     margin-top: 1em;
 }
 
-.input{
+.input,
+.project-category{
     border:2px solid $secondary-color;
     padding: $input-padding;
     border-radius: $border-radius;
@@ -69,9 +70,14 @@ a{
     margin-top: 1em;
 }
 
+.project-category{
+    color: $main-color-lighter;
+}
+
 // aside section
 
 .aside-section{
+    position: static;
     background-color: $main-color;
     padding: $section-padding;
     height: 100vh;
