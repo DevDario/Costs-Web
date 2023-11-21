@@ -20,6 +20,17 @@ a {
   text-decoration: none;
 }
 
+.button {
+  border: 2px solid #a61cdd;
+  padding: 15px 60px;
+  border-radius: 10px;
+  color: #fcfcfb;
+  background-color: #0f0f0f;
+  font-weight: 300;
+  cursor: pointer;
+  margin-top: 1em;
+}
+
 .aside-section {
   background-color: #0f0f0f;
   padding: 3em;
