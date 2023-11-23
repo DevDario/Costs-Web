@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="newproject.css">
+    <meta name="description" content="Easly Manage your projects, keep on track of the latest updates and add new services
+    to your project, everything is up to you or team. With this tool you'll be able to increase your performace and save more time
+    while managing a project. Start using it now.">
+    <meta name="keywords" content="Costs, Project Managment System, Project Managment, Managment
+    Web System, System">
+    <title>New Project | Costs</title>
+</head>
+<body>
+    <aside class="aside-section">
+        <div class="container">
+            <ul class="navigation-menu-list">
+                <li class="navigation-menu-option">
+                    <a href="/index.html">Home</a>
+                </li>
+                <li class="navigation-menu-option">
+                    <a href="../NewProject/newproject.html">New Project</a>
+                </li>
+                <li class="navigation-menu-option">
+                    <a href="#">My Projects</a>
+                </li>
+                <li class="navigation-menu-option">
+                    <a href="#">Settings</a>
+                </li>
+                <li class="navigation-menu-option">
+                    <a href="#">Login</a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <main class="content-section main-section section">
+
+        <nav class="navbar">
+            <h2 class="logo">Costs</h2>
+            <img src="../images/github-logo.png" alt="GitHub Logo" class="navbar-logo" id="github-logo">
+        </nav>
+
+        <div class="container">
+            <label for="name">Project's name</label>
+            
+            <input type="text" class="input" name="name" id="project-name">
+            
+            <label for="budget">Project's Budget</label>
+            
+            <input type="number" class="input" name="budget" id="project-budget">
+            
+            <select name="category" id="category" class="project-category">
+                
+                <option value="Infraestrutura" class="category-option">Infraestrutura</option>
+                
+                <option value="Desenvolvimento" class="category-option">Desenvolvimento</option>
+                
+                <option value="Planeamento" class="category-option">Planeamento</option>
+                
+            </select>
+
+            <button class="create-project-button button" id="create-project">
+                Create Project
+            </button>
+        </div>
+    </main>
+</body>
+</html>
