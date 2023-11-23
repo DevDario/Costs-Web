@@ -8,6 +8,9 @@
   align-items: flex-start;
   justify-content: flex-start;
 }
+.main-section .container form label {
+  margin-top: 1em;
+}
 .main-section .project-category {
   border: 2px solid #a61cdd;
   padding: 15px 60px;
