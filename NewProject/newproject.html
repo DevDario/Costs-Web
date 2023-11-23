@@ -43,27 +43,30 @@
         </nav>
 
         <div class="container">
-            <label for="name">Project's name</label>
-            
-            <input type="text" class="input" name="name" id="project-name">
-            
-            <label for="budget">Project's Budget</label>
-            
-            <input type="number" class="input" name="budget" id="project-budget">
-            
-            <select name="category" id="category" class="project-category">
+            <form>
+                <label for="name">Project's name</label>
                 
-                <option value="Infraestrutura" class="category-option">Infraestrutura</option>
+                <input type="text" class="input" name="name" id="project-name" required placeholder="e.g: My App">
                 
-                <option value="Desenvolvimento" class="category-option">Desenvolvimento</option>
+                <label for="budget">Project's Budget</label>
                 
-                <option value="Planeamento" class="category-option">Planeamento</option>
-                
-            </select>
+                <input type="number" class="input" name="budget" id="project-budget" required placeholder="U$ 0,00">
 
-            <button class="create-project-button button" id="create-project">
-                Create Project
-            </button>
+                <label for="category">Project's Category</label>
+                
+                <select name="category" id="category" class="project-category">
+                
+                    <option value="Infraestrutura" class="category-option">Infraestrutura</option>
+                
+                    <option value="Desenvolvimento" class="category-option">Desenvolvimento</option>
+                
+                    <option value="Planeamento" class="category-option">Planeamento</option>
+                
+                </select>
+                <button type="submit" class="create-project-button button" id="create-project">
+                    Create Project
+                </button>
+            </form>
         </div>
     </main>
 </body>
