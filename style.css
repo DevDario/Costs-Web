@@ -31,12 +31,11 @@ a {
   margin-top: 1em;
 }
 
-.input,
-.project-category {
+.input {
   border: 2px solid #a61cdd;
   padding: 15px 60px;
   border-radius: 10px;
-  color: #fcfcfb;
+  color: #0f0f0f;
   background-color: #fcfcfb;
   margin-top: 1em;
 }
