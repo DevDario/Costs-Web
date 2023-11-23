@@ -35,6 +35,17 @@ $sm-text:16px;
             label{
                 margin-top: 1em;
             }
+
+            .input,
+            .project-category{
+                height: 3rem;
+                width: 53rem;
+            }
+
+            .input::placeholder{
+                text-align: left;
+                align-items: left;
+            }
         }
     }
 

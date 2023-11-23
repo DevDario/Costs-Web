@@ -11,6 +11,23 @@
 .main-section .container form label {
   margin-top: 1em;
 }
+.main-section .container form .input,
+.main-section .container form .project-category {
+  height: 3rem;
+  width: 53rem;
+}
+.main-section .container form .input::-moz-placeholder {
+  text-align: left;
+  align-items: left;
+}
+.main-section .container form .input:-ms-input-placeholder {
+  text-align: left;
+  align-items: left;
+}
+.main-section .container form .input::placeholder {
+  text-align: left;
+  align-items: left;
+}
 .main-section .project-category {
   border: 2px solid #a61cdd;
   padding: 15px 60px;
