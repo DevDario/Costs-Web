@@ -1,0 +1,41 @@
+// Colors and others
+
+$main-color:#0f0f0f;
+$text-color:#fcfcfb;
+$dark-text-color:$main-color;
+$grey-white:#fcfcfb;
+$main-color-lighter:#181818;
+$main-color-darker:#0c0c0c;
+$secondary-color: #a61cdd;
+$secondary-color-darker:#72018f;
+$gradient:linear-gradient(60deg,$main-color,$main-color-lighter,$main-color-darker,#252525);
+
+// measures and constant values
+$border-radius:10px;
+$section-padding:3em;
+$button-padding:15px 60px;
+$input-padding:15px 60px;
+$bg-text:30px;
+$m-text:24px;
+$sm-text:16px;
+
+
+.main-section{
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        justify-content: left;
+        margin: 2em 0;
+    }
+
+
+    .project-category{
+        border:2px solid $secondary-color;
+        padding: $input-padding;
+        border-radius: $border-radius;
+        color: $dark-text-color;
+        background-color: $grey-white;
+        margin-top: 1em;
+    }
+}
