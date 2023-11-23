@@ -1,9 +1,12 @@
 .main-section .container {
-  display: flex;
-  flex-direction: column;
   align-items: left;
   justify-content: left;
-  margin: 2em 0;
+}
+.main-section .container form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 .main-section .project-category {
   border: 2px solid #a61cdd;
