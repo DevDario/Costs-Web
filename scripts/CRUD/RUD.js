@@ -1,15 +1,17 @@
-const getProjectsFromDB = () =>  JSON.parse(localStorage.getItem('projects')) ?? [] 
 const root = document.getElementById('root')
 const conditionalMessage = document.getElementById('conditional')
 
+let projects = []
+
+//READ
 window.onload = () => {
 
-    let data = getProjectsFromDB()
+    projects = getProjectsFromDB()
 
-    data.length === 0 ? conditionalMessage.style.display="flex" : conditionalMessage.style.display="none" 
+    projects.length === 0 ? conditionalMessage.style.display = "flex" : conditionalMessage.style.display = "none"
 
-    data.map((project)=>{
-        root.innerHTML += 
+    projects.map((project,index) => {
+        root.innerHTML +=
             `
                 <div class="project-card">
                     <div class="card-conteiner">
@@ -18,7 +20,7 @@ window.onload = () => {
                         <p class="project-category">Category:${project.projectCategory}</p>
                     
                         <div class="services">
-                            <p>0 Services Added<p>
+                            <p>${project.numberOfServices} Services Added<p>
                         </div>
 
                         <div class="actions">
@@ -28,7 +30,7 @@ window.onload = () => {
                             </div>
 
                             <div class="delete">
-                                <button class="button">Delete <img src="../../images/delete-icon.png" alt="delete icon" /> </button>
+                                <button onclick="deleteProject(${index})" class="button">Delete <img src="../../images/delete-icon.png" alt="delete icon" /> </button>
                             </div>
                             
                         </div>
@@ -37,3 +39,17 @@ window.onload = () => {
             `
     })
 }
+
+//DELETE
+function deleteProject(index) {
+
+    projects.splice(index,1)
+
+    setProjectsToDB()
+
+    window.location.reload()
+}
+
+//DB Operations
+const getProjectsFromDB = () => JSON.parse(localStorage.getItem('projects')) ?? []
+const setProjectsToDB = () => localStorage.setItem('projects', JSON.stringify(projects))
