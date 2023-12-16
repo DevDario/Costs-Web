@@ -10,6 +10,7 @@ createProjectButton.addEventListener('click', (event) => {
         projectName: document.getElementById('project-name').value || null,
         projectBudget: document.getElementById('project-budget').value || null,
         projectCategory: document.getElementById('category').value || null,
+        numberOfServices: 0,
     }
 
     if (!projectDetails.projectName)  alert("Project Name missing !")
