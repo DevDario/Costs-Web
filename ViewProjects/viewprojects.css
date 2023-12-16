@@ -14,7 +14,9 @@
 }
 .content-section #root .project-card {
   width: 260px;
-  height: 250px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   background-color: rgb(250, 248, 248);
   padding: 2em;
   border: 1px solid #a61cdd;

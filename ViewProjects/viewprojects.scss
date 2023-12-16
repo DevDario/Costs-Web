@@ -36,7 +36,7 @@ $sm-text:16px;
 
         .project-card{
             width: 260px;
-            height: 250px;
+            height: fit-content;
             background-color: $smoke-white;
             padding: calc($section-padding - 1em);
             border:1px solid $secondary-color;
