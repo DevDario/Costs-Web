@@ -55,12 +55,14 @@
                 <label for="category">Project's Category</label>
                 
                 <select name="category" id="category" class="project-category">
+
+                    <option value="none" class="category-option">none</option>
                 
-                    <option value="Infraestrutura" class="category-option">Infraestrutura</option>
+                    <option value="Infrastructure" class="category-option">Infraestrutura</option>
                 
-                    <option value="Desenvolvimento" class="category-option">Desenvolvimento</option>
+                    <option value="Development" class="category-option">Desenvolvimento</option>
                 
-                    <option value="Planeamento" class="category-option">Planeamento</option>
+                    <option value="Planning" class="category-option">Planeamento</option>
                 
                 </select>
                 <button type="submit" class="create-project-button button" id="create-project">
@@ -69,5 +71,7 @@
             </form>
         </div>
     </main>
+
+    <script src="../scripts/CRUD/create.js"></script>
 </body>
 </html>
