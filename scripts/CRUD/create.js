@@ -13,7 +13,7 @@ createProjectButton.addEventListener('click', (event) => {
 
     if (!projectDetails.projectName)  alert("Project Name missing !")
     if (!projectDetails.projectBudget)  alert("Project Budget missing !")
-    if (!projectDetails.projectCategory !== "none")  return alert("Project Category missing !")
+    if (projectDetails.projectCategory === "none")  return alert("Project Category missing !")
 
     projects.push(projectDetails)
     setItensToBD()
