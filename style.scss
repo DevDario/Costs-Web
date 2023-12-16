@@ -97,6 +97,11 @@ a{
             flex-direction: column;
             gap: 30px;
 
+            a{
+                color: $text-color;
+                cursor: alias;
+            }
+
             .navigation-menu-option{
                 font-weight: 500;
                 padding: 15px;
@@ -104,11 +109,6 @@ a{
                 background-color: $main-color-lighter;
                 cursor: pointer;
                 transition: all 900ms ease-out;
-
-                a{
-                    color: $text-color;
-                    cursor: alias;
-                }
             }
 
             .navigation-menu-option:hover{

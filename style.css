@@ -64,6 +64,10 @@ a {
   flex-direction: column;
   gap: 30px;
 }
+.aside-section .container .navigation-menu-list a {
+  color: #fcfcfb;
+  cursor: alias;
+}
 .aside-section .container .navigation-menu-list .navigation-menu-option {
   font-weight: 500;
   padding: 15px;
@@ -71,10 +75,6 @@ a {
   background-color: #181818;
   cursor: pointer;
   transition: all 900ms ease-out;
-}
-.aside-section .container .navigation-menu-list .navigation-menu-option a {
-  color: #fcfcfb;
-  cursor: alias;
 }
 .aside-section .container .navigation-menu-list .navigation-menu-option:hover {
   transition: all 800ms ease-in-out;
