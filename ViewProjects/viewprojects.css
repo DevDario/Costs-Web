@@ -1,0 +1,73 @@
+.content-section {
+  margin-left: 30px;
+}
+.content-section #root {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+  gap: 20px;
+  flex-direction: row;
+}
+.content-section #root .project-card:hover {
+  transition: all 240ms ease-in;
+  transform: translateY(-4px);
+}
+.content-section #root .project-card {
+  width: 260px;
+  height: 250px;
+  background-color: rgb(250, 248, 248);
+  padding: 2em;
+  border: 1px solid #a61cdd;
+  border-radius: 10px;
+  box-shadow: -8px -4px 15px -3px rgba(0, 0, 0, 0.123);
+  transition: all 500ms ease-out;
+  cursor: pointer;
+}
+.content-section #root .project-card .card-conteiner {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: left;
+  gap: 6px;
+}
+.content-section #root .project-card .card-conteiner .project-name {
+  font-size: x-large;
+}
+.content-section #root .project-card .card-conteiner .project-budget,
+.content-section #root .project-card .card-conteiner .project-category {
+  font-size: 16px;
+  font-weight: 500;
+}
+.content-section #root .project-card .card-conteiner .services {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  flex-wrap: wrap;
+  padding: 9px;
+  border-radius: 10px;
+  background-color: rgb(242, 242, 242);
+}
+.content-section #root .project-card .card-conteiner .services p {
+  padding: 4px;
+  border-radius: 10px;
+  color: #72018f;
+}
+.content-section #root .project-card .card-conteiner .actions {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  margin-top: 5px;
+}
+.content-section #root .project-card .card-conteiner .actions .delete button,
+.content-section #root .project-card .card-conteiner .actions .edit button {
+  display: flex;
+  align-self: center;
+  align-items: center;
+  padding: 10px 20px;
+}
+.content-section #root .project-card .card-conteiner .actions .delete button img,
+.content-section #root .project-card .card-conteiner .actions .edit button img {
+  width: 18px;
+  height: 18px;
+}/*# sourceMappingURL=viewprojects.css.map */

@@ -1,0 +1,108 @@
+// Colors and others
+
+$main-color:#0f0f0f;
+$text-color:#fcfcfb;
+$dark-text-color:$main-color;
+$grey-white:#fcfcfb;
+$smoke-white:rgb(250, 248, 248);
+$main-color-lighter:#181818;
+$main-color-darker:#0c0c0c;
+$secondary-color: #a61cdd;
+$secondary-color-darker:#72018f;
+$gradient:linear-gradient(60deg,$main-color,$main-color-lighter,$main-color-darker,#252525);
+
+// measures and constant values
+$border-radius:10px;
+$section-padding:3em;
+$button-padding:15px 60px;
+$input-padding:15px 60px;
+$bg-text:30px;
+$m-text:24px;
+$sm-text:16px;
+
+.content-section{
+    margin-left: 30px;
+    #root{
+        display: flex;
+        justify-content: left;
+        flex-wrap: wrap;
+        gap: 20px;
+        flex-direction: row;
+
+        .project-card:hover{
+            transition: all 240ms ease-in;
+            transform: translateY(-4px);
+        }
+
+        .project-card{
+            width: 260px;
+            height: 250px;
+            background-color: $smoke-white;
+            padding: calc($section-padding - 1em);
+            border:1px solid $secondary-color;
+            border-radius: $border-radius;
+            box-shadow: -8px -4px 15px -3px rgba(0, 0, 0, 0.123);
+            transition: all 500ms ease-out;
+            cursor: pointer;
+
+            .card-conteiner{
+                display:flex;
+                flex-direction: column;
+                align-self: center;
+                align-items: left;
+                gap: 6px;
+
+                .project-name{
+                    font-size: x-large;
+                }
+
+                .project-budget,
+                .project-category{
+                    font-size: $sm-text;
+                    font-weight: 500;
+                }
+
+                .services{
+                    margin-top: 15px;
+                    display:flex;
+                    flex-direction: row;
+                    gap: 4px;
+                    flex-wrap: wrap;
+                    padding: 9px;
+                    border-radius: $border-radius;
+                    background-color: rgb(242, 242, 242);
+    
+                    p{
+                        padding: 4px;
+                        border-radius: $border-radius;
+                        color:$secondary-color-darker;
+                    }
+                }
+    
+                .actions{
+                    display: flex;
+                    flex-direction: row;
+                    gap: 5px;
+                    margin-top: 5px;
+
+    
+                    .delete,
+                    .edit{
+                        button{
+                            display: flex;
+                            align-self: center;
+                            align-items: center;
+                            padding: 10px 20px;
+    
+                            img{
+                                width: 18px;
+                                height: 18px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
