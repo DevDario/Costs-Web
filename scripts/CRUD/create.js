@@ -16,12 +16,12 @@ createProjectButton.addEventListener('click', (event) => {
     if (projectDetails.projectCategory === "none")  return alert("Project Category missing !")
 
     projects.push(projectDetails)
-    setItensToBD()
+    setItensToDB()
 
     alert("Project Created Successfully !")
 
 })
 
 
-const setItensToBD = () => localStorage.setItem('projects', JSON.stringify(projects))
-const getItensFromBD = () => JSON.parse(localStorage.getItem('projects')) ?? []
+const setItensToDB = () => localStorage.setItem('projects', JSON.stringify(projects))
+const getItensFromDB = () => JSON.parse(localStorage.getItem('projects')) ?? []
