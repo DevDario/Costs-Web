@@ -1,0 +1,21 @@
+// Colors and others
+
+$main-color:#0f0f0f;
+$text-color:#fcfcfb;
+$dark-text-color:$main-color;
+$grey-white:#fcfcfb;
+$smoke-white:rgb(250, 248, 248);
+$main-color-lighter:#181818;
+$main-color-darker:#0c0c0c;
+$secondary-color: #a61cdd;
+$secondary-color-darker:#72018f;
+$gradient:linear-gradient(60deg,$main-color,$main-color-lighter,$main-color-darker,#252525);
+
+// measures and constant values
+$border-radius:10px;
+$section-padding:3em;
+$button-padding:15px 60px;
+$input-padding:15px 60px;
+$bg-text:30px;
+$m-text:24px;
+$sm-text:16px;
