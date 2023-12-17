@@ -8,7 +8,17 @@ window.onload = () => {
 
     projects = getProjectsFromDB()
 
-    projects.length === 0 ? conditionalMessage.style.display = "flex" : conditionalMessage.style.display = "none"
+    if (projects.length === 0) {
+
+        root.style.justifyContent = "center"
+        conditionalMessage.innerText = "No Projects Found"
+
+    } else {
+
+        conditionalMessage.style.display = "none"
+
+    }
+
 
     projects.map((project,index) => {
         root.innerHTML +=
