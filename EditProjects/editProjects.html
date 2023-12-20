@@ -50,7 +50,55 @@
         </nav>
 
         <div class="container" id="root">
-            
+            <h3 class="main-container-title title separator">
+                Editar Projeto
+            </h3>
+
+            <div class="project-info">
+                <p class="project-name" id="project-name-description">Project's name: null</p>
+                <p class="project-budget" id="project-budget-description">Project's budget: 0</p>
+                <p class="project-category" id="project-category-description">Project's category: none</p>
+                <p class="project-used-budget" id="project-usedbudget-description">Budget Used: 0</p>
+            </div>
+
+            <div class="editing-area">
+
+                <h3 class="separator">Edit Project</h3>
+
+                <div class="editing-fields">
+                    <form>
+                        <label for="name">Project's name</label>
+                        
+                        <input type="text" class="input" name="name" id="project-name" required placeholder="e.g: My App">
+                        
+                        <label for="budget">Project's Budget</label>
+                        
+                        <input type="number" class="input" name="budget" id="project-budget" required placeholder="U$ 0,00">
+        
+                        <label for="category">Project's Category</label>
+                        
+                        <select name="category" id="category" class="project-category">
+        
+                            <option value="none" class="category-option">none</option>
+                        
+                            <option value="Infrastructure" class="category-option">Infraestrutura</option>
+                        
+                            <option value="Development" class="category-option">Desenvolvimento</option>
+                        
+                            <option value="Planning" class="category-option">Planeamento</option>
+                        
+                        </select>
+                        <button type="submit" class="create-project-button button" id="create-project">
+                            Create Project
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+
+            <h3 class="separator">Add new services</h3>
+
         </div>
     </main>
 
