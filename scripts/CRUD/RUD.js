@@ -36,7 +36,7 @@ window.onload = () => {
                         <div class="actions">
                             
                             <div class="edit">
-                                <button class="button">Edit <img src="../../images/edit-icon.png" alt="edit icon" /> </button>
+                                <button onclick="editProject(${index})" class="button">Edit <img src="../../images/edit-icon.png" alt="edit icon" /> </button>
                             </div>
 
                             <div class="delete">
