@@ -19,3 +19,34 @@ $input-padding:15px 60px;
 $bg-text:30px;
 $m-text:24px;
 $sm-text:16px;
+
+.separator{
+    padding: 20px 20%;
+    border-radius: $border-radius;
+    color: $grey-white;
+    background-color: $main-color-darker;
+}
+
+
+.main-section{
+    .container{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        justify-content: left;
+        align-items: left;
+
+        .project-info{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .editing-area{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: left;
+        }
+    }
+}

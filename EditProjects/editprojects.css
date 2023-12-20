@@ -1,1 +1,25 @@
-/*# sourceMappingURL=editprojects.css.map */
+.separator {
+  padding: 20px 20%;
+  border-radius: 10px;
+  color: #fcfcfb;
+  background-color: #0c0c0c;
+}
+
+.main-section .container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: left;
+  align-items: left;
+}
+.main-section .container .project-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.main-section .container .editing-area {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: left;
+}/*# sourceMappingURL=editprojects.css.map */
