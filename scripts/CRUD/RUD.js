@@ -25,9 +25,9 @@ window.onload = () => {
             `
                 <div class="project-card">
                     <div class="card-conteiner">
-                        <h3 class="project-name">${project.projectName}</h3>
-                        <h5 class="project-budget">Budget:${project.projectBudget} U$<h5/>
-                        <p class="project-category">Category:${project.projectCategory}</p>
+                        <h3 class="project-name-label">${project.projectName}</h3>
+                        <h5 class="project-budget-label">Budget:${project.projectBudget} U$<h5/>
+                        <p class="project-categor-labely">Category:${project.projectCategory}</p>
                     
                         <div class="services">
                             <p>${project.numberOfServices} Services Added<p>
