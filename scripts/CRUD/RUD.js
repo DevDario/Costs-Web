@@ -20,7 +20,7 @@ window.onload = () => {
     }
 
 
-    projects.map((project,index) => {
+    projects.map((project, index) => {
         root.innerHTML +=
             `
                 <div class="project-card">
@@ -53,7 +53,7 @@ window.onload = () => {
 //DELETE
 function deleteProject(index) {
 
-    projects.splice(index,1)
+    projects.splice(index, 1)
 
     setProjectsToDB()
 
@@ -61,14 +61,14 @@ function deleteProject(index) {
 }
 
 //EDIT
-function editProject(index){
-    
+function editProject(index) {
+
     projects = getProjectsFromDB()
-    
-    let projectToEdit = projects[index]
-    
+
+    const projectToEdit = projects[index]
+
     //stores the project's ID on localStorage for further use in the editing page
-    localStorage.setItem('PRID',String(projectToEdit.id))
+    localStorage.setItem('PRID', String(projectToEdit.id))
 
     window.location.href = "http://127.0.0.1:5500/EditProjects/editProjects.html"
 }
