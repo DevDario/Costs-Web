@@ -112,13 +112,13 @@ a {
 .main-section .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 2em auto;
+  margin: 2em 0;
 }
 .main-section .container .main-image {
   display: flex;
   align-items: center;
+  margin: 0 auto;
+  justify-content: center;
   width: 40%;
   border-radius: 10px;
   filter: grayscale(100%);
@@ -129,6 +129,10 @@ a {
   text-align: center;
 }
 .main-section .container .main-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border: 2px solid #a61cdd;
   padding: 15px 60px;
   border-radius: 10px;
@@ -136,5 +140,5 @@ a {
   background-color: #0f0f0f;
   font-weight: 300;
   cursor: pointer;
-  margin-top: 1em;
+  margin: 2em auto;
 }/*# sourceMappingURL=style.css.map */
