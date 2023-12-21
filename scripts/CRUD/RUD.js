@@ -60,6 +60,18 @@ function deleteProject(index) {
     window.location.reload()
 }
 
+//EDIT
+function editProject(index){
+    
+    projects = getProjectsFromDB()
+    
+    let projectToEdit = projects[index]
+    
+    //stores the project's ID on localStorage for further use in the editing page
+    localStorage.setItem('PRID',String(projectToEdit.id))
+
+    window.location.href = "http://127.0.0.1:5500/EditProjects/editProjects.html"
+}
 //DB Operations
 const getProjectsFromDB = () => JSON.parse(localStorage.getItem('projects')) ?? []
 const setProjectsToDB = () => localStorage.setItem('projects', JSON.stringify(projects))
