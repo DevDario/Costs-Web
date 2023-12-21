@@ -30,11 +30,11 @@
   align-items: left;
   gap: 6px;
 }
-.content-section #root .project-card .card-conteiner .project-name {
+.content-section #root .project-card .card-conteiner .project-name-label {
   font-size: 21px;
 }
-.content-section #root .project-card .card-conteiner .project-budget,
-.content-section #root .project-card .card-conteiner .project-category {
+.content-section #root .project-card .card-conteiner .project-budget-label,
+.content-section #root .project-card .card-conteiner .project-category-label {
   font-size: 16px;
   font-weight: 500;
 }

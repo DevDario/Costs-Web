@@ -52,12 +52,12 @@ $sm-text:16px;
                 align-items: left;
                 gap: 6px;
 
-                .project-name{
+                .project-name-label{
                     font-size: calc($m-text - 3px);
                 }
 
-                .project-budget,
-                .project-category{
+                .project-budget-label,
+                .project-category-label{
                     font-size: $sm-text;
                     font-weight: 500;
                 }
