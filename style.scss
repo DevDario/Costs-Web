@@ -73,7 +73,14 @@ a{
 }
 
 .project-category{
+    width: 53rem;
+    height: 3rem;
+    padding: 0px 10px 0px 60px;
+    border:2px solid $secondary-color;
+    border-radius: $border-radius;
     color: $main-color-lighter;
+    background-color: $grey-white;
+    margin-top: 1em;
 }
 
 // aside section

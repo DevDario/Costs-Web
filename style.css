@@ -43,7 +43,14 @@ a {
 }
 
 .project-category {
+  width: 53rem;
+  height: 3rem;
+  padding: 0px 10px 0px 60px;
+  border: 2px solid #a61cdd;
+  border-radius: 10px;
   color: #181818;
+  background-color: #fcfcfb;
+  margin-top: 1em;
 }
 
 .aside-section {
