@@ -54,3 +54,21 @@ function fillFields(projectInfo) {
 
     }
 )()
+
+const inputs = {
+
+    projectNameInput: document.getElementById('project-name'),
+    projectBudgetInput: document.getElementById('project-budget'),
+    projectCategoryInput: document.getElementById('category'),
+
+}
+
+const submitButton = document.getElementById('edit-project').addEventListener('click', (event) => {
+
+    event.preventDefault()
+
+    //EDIT
+    if (!inputs.projectNameInput) alert("Project Name missing !")
+    if (!inputs.projectBudgetInput) alert("Project Budget missing !")
+    if (inputs.projectCategoryInput === "none") return alert("Project Category missing !")
+})
