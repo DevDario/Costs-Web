@@ -71,4 +71,18 @@ const submitButton = document.getElementById('edit-project').addEventListener('c
     if (!inputs.projectNameInput) alert("Project Name missing !")
     if (!inputs.projectBudgetInput) alert("Project Budget missing !")
     if (inputs.projectCategoryInput === "none") return alert("Project Category missing !")
+
+    const index = parseInt(localStorage.getItem('INDEX'))
+
+    let projects = JSON.parse(localStorage.getItem('projects')) ?? []
+
+    projects[index].projectName = inputs.projectNameInput.value
+    projects[index].projectBudget = inputs.projectBudgetInput.value
+    projects[index].projectCategory = inputs.projectCategoryInput.value
+
+    localStorage.setItem('projects', JSON.stringify(projects))
+
+    alert(`Project Updated Successfully !`)
+
+    window.location.href = "http://127.0.0.1:5500/ViewProjects/viewprojects.html"
 })
