@@ -3,7 +3,7 @@ function fillFields(projectInfo) {
     const projectNameLabel = document.getElementById('project-name-description')
     const projectBudgetLabel = document.getElementById('project-budget-description')
     const projectCategoryLabel = document.getElementById('project-category-description')
-    //const projectUsedBudgetLabel = document.getElementById('project-usedbudget-description')
+    const projectUsedBudgetLabel = document.getElementById('project-usedbudget-description')
 
     //inputs
     const projectNameInput = document.getElementById('project-name')
@@ -12,9 +12,9 @@ function fillFields(projectInfo) {
 
 
     projectNameLabel.innerHTML = `Project's Name: ${projectInfo.projectName}`
-    projectBudgetLabel.innerHTML = `Project's Budget: ${projectInfo.projectName}`
-    projectCategoryLabel.innerHTML = `Project's Category: ${projectInfo.projectName}`
-    //projectUsedBudgetLabel.innerHTML = `Budget Used  ${projectInfo.projectName}`
+    projectBudgetLabel.innerHTML = `Project's Budget: ${projectInfo.projectBudget},00 U$`
+    projectCategoryLabel.innerHTML = `Project's Category: ${projectInfo.projectCategory}`
+    projectUsedBudgetLabel.innerHTML = `Budget Used  0,00 U$`
 
     projectNameInput.value = `${projectInfo.projectName}`
     projectBudgetInput.value = `${projectInfo.projectBudget}`
