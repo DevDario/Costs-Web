@@ -70,6 +70,9 @@ function editProject(index) {
     //stores the project's ID on localStorage for further use in the editing page
     localStorage.setItem('PRID', String(projectToEdit.id))
 
+    //stores the project's position in the array on localStorage for further use in the editing page
+    localStorage.setItem('INDEX', String(index))
+
     window.location.href = "http://127.0.0.1:5500/EditProjects/editProjects.html"
 }
 //DB Operations
