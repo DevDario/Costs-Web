@@ -72,6 +72,11 @@ a{
     margin-top: .7em;
 }
 
+.blur{
+    backdrop-filter: blur(4px);
+    filter: blur(4px);
+}
+
 .project-category{
     width: 53rem;
     height: 3rem;
