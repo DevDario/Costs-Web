@@ -30,11 +30,9 @@ function fillFields(projectInfo) {
 
             const ID = parseInt(localStorage.getItem('PRID'))
 
-            let projects = JSON.parse(localStorage.getItem('projectsD')) ?? []
+            let projects = JSON.parse(localStorage.getItem('projects')) ?? []
 
             if (!projects) {
-
-                document.body.classList.add('.blur')
 
                 alert("You don't have any created projects. Let's create one !")
 
@@ -52,12 +50,7 @@ function fillFields(projectInfo) {
 
             window.location.href = `http://127.0.0.1:5500/ViewProjects/viewprojects.html`
 
-            throw new Error(IDNotFoundError)
         }
 
     }
 )()
-
-const submitButton = document.getElementById('edit-project').addEventListener('click',(event)=>{
-    //EDIT
-})
