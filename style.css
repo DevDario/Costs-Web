@@ -38,7 +38,11 @@ a {
   border-radius: 10px;
   color: #0f0f0f;
   background-color: #fcfcfb;
-  margin-top: 0.7em;
+}
+
+input,
+textarea {
+  margin: 0.7rem auto 2em auto;
 }
 
 textarea {

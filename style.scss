@@ -68,7 +68,11 @@ a{
     border-radius: $border-radius;
     color: $dark-text-color;
     background-color: $grey-white;
-    margin-top: .7em;
+}
+
+input,
+textarea{
+    margin:.7rem auto 2em auto;
 }
 
 textarea{
