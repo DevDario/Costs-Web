@@ -111,6 +111,7 @@ a {
   margin: 0 auto;
   background-color: #0f0f0f;
   padding: 20px;
+  height: 80px;
   border-radius: 10px;
 }
 .main-section .navbar .navbar-logo {
