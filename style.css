@@ -2,13 +2,21 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Chivo, sans-serif;
+  font-family: "anybody", sans-serif;
 }
 
 body {
   background-color: #fcfcfb;
   display: flex;
   flex-direction: row;
+}
+
+.title, h1, h2, h3, h4 {
+  font-family: "Montserrat", system-ui, -apple-system, sans-serif;
+}
+
+label, p, span, h5, li {
+  font-family: "anybody", sans-serif;
 }
 
 ul {
