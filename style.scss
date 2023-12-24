@@ -71,6 +71,14 @@ a{
     margin-top: .7em;
 }
 
+textarea{
+    width: 53rem;
+    height: 140px;
+    padding: 2px 0px;
+    border:2px solid $secondary-color;
+    border-radius: $border-radius;
+}
+
 .blur{
     backdrop-filter: blur(4px);
     filter: blur(4px);
