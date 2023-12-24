@@ -8,9 +8,6 @@
   align-items: flex-start;
   justify-content: flex-start;
 }
-.main-section .container form label {
-  margin-top: 1em;
-}
 .main-section .container form .input,
 .main-section .container form .project-category {
   height: 3rem;
