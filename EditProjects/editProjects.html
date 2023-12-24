@@ -91,10 +91,31 @@
                     </form>
                 </div>
 
+                <h3 class="separator">Add new services</h3>
+
+                <div class="editing-fields">
+                    <form>
+                        <label for="name">Service Name</label>
+                        
+                        <input type="text" class="input" name="name" id="service-name" required placeholder="e.g: Design">
+                        
+                        <label for="budget">Service Budget</label>
+                        
+                        <input type="number" class="input" name="budget" id="service-budget" required placeholder="U$ 0,00">
+        
+                        <label for="category">Add a simple description (optional)</label>
+                        
+                        <textarea name="service-description"  id="service-description" cols="30" rows="10" class="service-description">
+                            
+                        </textarea>
+
+                        <button type="submit" class="add-service-button button" id="add-service">
+                            Add Service
+                        </button>
+                    </form>
+                </div>
+
             </div>
-
-
-            <h3 class="separator">Add new services</h3>
 
         </div>
     </main>
