@@ -84,5 +84,5 @@ const submitButton = document.getElementById('edit-project').addEventListener('c
 
     alert(`Project Updated Successfully !`)
 
-    window.location.href = "http://127.0.0.1:5500/ViewProjects/viewprojects.html"
+    window.location.reload()
 })
