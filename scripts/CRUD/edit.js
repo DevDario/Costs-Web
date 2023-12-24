@@ -28,7 +28,7 @@ function fillFields(projectInfo) {
 
         try {
 
-            const ID = parseInt(localStorage.getItem('PRID'))
+            const INDEX = parseInt(localStorage.getItem('INDEX'))
 
             let projects = JSON.parse(localStorage.getItem('projects')) ?? []
 
@@ -39,7 +39,7 @@ function fillFields(projectInfo) {
                 window.location.href = `http://127.0.0.1:5500/NewProject/newproject.html`
             }
 
-            let projectToEdit = projects[ID]
+            let projectToEdit = projects[INDEX]
 
             fillFields(projectToEdit)
 
