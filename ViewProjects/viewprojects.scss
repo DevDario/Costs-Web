@@ -21,7 +21,8 @@ $m-text:24px;
 $sm-text:16px;
 
 .content-section{
-    margin-left: 15px;
+    margin:auto auto auto 390px;
+    padding: 2em $section-padding;
     #root{
         display: flex;
         justify-content: left;
