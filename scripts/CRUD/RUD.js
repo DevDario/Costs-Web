@@ -25,7 +25,7 @@ window.onload = () => {
             `
                 <div class="project-card">
                     <div class="card-conteiner">
-                        <h3 class="project-name-label">${project.projectName}</h3>
+                        <h3 title="${project.projectName}" class="project-name-label">${project.projectName.length >= 13 ? project.projectName.charAt(0).toUpperCase().concat(project.projectName.charAt(5).toUpperCase() + project.projectName.charAt(9).toUpperCase() + "...")  : project.projectName}</h3>
                         <h5 class="project-budget-label">Budget: U$ ${project.projectBudget}<h5/>
                         <p class="project-category-label">Category:${project.projectCategory}</p>
                     
