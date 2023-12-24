@@ -36,9 +36,8 @@ $sm-text:16px;
 
 body{
     background-color: $grey-white;
-    display: grid;
-    grid-template-columns: 30% 70%;
-    row-gap: 10px;
+    display: flex;
+    flex-direction: row;
 }
 
 // Reseting default styles
@@ -91,10 +90,15 @@ a{
 // aside section
 
 .aside-section{
-    position: static;
+    width:350px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow-x: hidden;
     background-color: $main-color;
     padding: $section-padding;
-    height: 100vh;
     border-right: 4px solid $main-color-lighter;
 
     .container{
@@ -134,6 +138,7 @@ a{
 // main section
 
 .main-section{
+    margin:auto auto auto 390px;
     padding: 2em $section-padding;
 
     .navbar{

@@ -7,9 +7,8 @@
 
 body {
   background-color: #fcfcfb;
-  display: grid;
-  grid-template-columns: 30% 70%;
-  row-gap: 10px;
+  display: flex;
+  flex-direction: row;
 }
 
 ul {
@@ -60,10 +59,15 @@ a {
 }
 
 .aside-section {
-  position: static;
+  width: 350px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow-x: hidden;
   background-color: #0f0f0f;
   padding: 3em;
-  height: 100vh;
   border-right: 4px solid #181818;
 }
 .aside-section .container {
@@ -96,6 +100,7 @@ a {
 }
 
 .main-section {
+  margin: auto auto auto 390px;
   padding: 2em 3em;
 }
 .main-section .navbar {
