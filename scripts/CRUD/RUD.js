@@ -26,7 +26,7 @@ window.onload = () => {
                 <div class="project-card">
                     <div class="card-conteiner">
                         <h3 class="project-name-label">${project.projectName}</h3>
-                        <h5 class="project-budget-label">Budget:${project.projectBudget} U$<h5/>
+                        <h5 class="project-budget-label">Budget: U$ ${project.projectBudget}<h5/>
                         <p class="project-category-label">Category:${project.projectCategory}</p>
                     
                         <div class="services">
