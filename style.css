@@ -105,13 +105,15 @@ a {
 }
 .main-section .navbar {
   display: flex;
+  position: fixed;
+  z-index: 1;
+  width: 60%;
+  height: 80px;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin: 0 auto;
   background-color: #0f0f0f;
   padding: 20px;
-  height: 80px;
   border-radius: 10px;
 }
 .main-section .navbar .navbar-logo {
@@ -131,7 +133,7 @@ a {
 .main-section .container {
   display: flex;
   flex-direction: column;
-  margin: 2em 0;
+  margin: 7em 0 2em 0;
 }
 .main-section .container .main-image {
   display: flex;

@@ -143,13 +143,15 @@ a{
 
     .navbar{
         display: flex;
+        position: fixed;
+        z-index: 1;
+        width:60%;
+        height: 80px;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        margin: 0 auto;
         background-color: $main-color;
         padding: 20px;
-        height: 80px;
         border-radius: $border-radius;
 
         .navbar-logo{
@@ -173,7 +175,7 @@ a{
     .container{
         display: flex;
         flex-direction: column;
-        margin: 2em 0;
+        margin: 7em 0 2em 0;
         
         .main-image{
             display: flex;
