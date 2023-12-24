@@ -12,9 +12,9 @@ function fillFields(projectInfo) {
 
 
     projectNameLabel.innerHTML = `Project's Name: ${projectInfo.projectName}`
-    projectBudgetLabel.innerHTML = `Project's Budget: ${projectInfo.projectBudget},00 U$`
+    projectBudgetLabel.innerHTML = `Project's Budget: U$ ${projectInfo.projectBudget},00`
     projectCategoryLabel.innerHTML = `Project's Category: ${projectInfo.projectCategory}`
-    projectUsedBudgetLabel.innerHTML = `Budget Used  0,00 U$`
+    projectUsedBudgetLabel.innerHTML = `Budget Used: U$ 0,00`
 
     projectNameInput.value = `${projectInfo.projectName}`
     projectBudgetInput.value = `${projectInfo.projectBudget}`
