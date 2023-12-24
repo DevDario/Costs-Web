@@ -72,13 +72,13 @@ const submitButton = document.getElementById('edit-project').addEventListener('c
     if (!inputs.projectBudgetInput) alert("Project Budget missing !")
     if (inputs.projectCategoryInput === "none") return alert("Project Category missing !")
 
-    const index = parseInt(localStorage.getItem('INDEX'))
+    const INDEX = parseInt(localStorage.getItem('INDEX'))
 
     let projects = JSON.parse(localStorage.getItem('projects')) ?? []
 
-    projects[index].projectName = inputs.projectNameInput.value
-    projects[index].projectBudget = inputs.projectBudgetInput.value
-    projects[index].projectCategory = inputs.projectCategoryInput.value
+    projects[INDEX].projectName = inputs.projectNameInput.value
+    projects[INDEX].projectBudget = inputs.projectBudgetInput.value
+    projects[INDEX].projectCategory = inputs.projectCategoryInput.value
 
     localStorage.setItem('projects', JSON.stringify(projects))
 
