@@ -1,3 +1,6 @@
+let projects = []
+let services = []
+
 function fillFields(projectInfo) {
     //labels
     const projectNameLabel = document.getElementById('project-name-description')
@@ -30,7 +33,7 @@ function fillFields(projectInfo) {
 
             const INDEX = parseInt(localStorage.getItem('INDEX'))
 
-            let projects = JSON.parse(localStorage.getItem('projects')) ?? []
+            projects = JSON.parse(localStorage.getItem('projects')) ?? []
 
             if (!projects) {
 
@@ -60,25 +63,55 @@ const inputs = {
     projectNameInput: document.getElementById('project-name'),
     projectBudgetInput: document.getElementById('project-budget'),
     projectCategoryInput: document.getElementById('category'),
+    projectServiceNameInput: document.getElementById('service-name'),
+    projectServiceBudgetInput: document.getElementById('service-budget'),
+    projectServiceDescriptionInput: document.getElementById('service-description')
 
+}
+
+
+function addService(INDEX) {
+
+    if (parseInt(inputs.projectServiceBudgetInput.value) >= projects[INDEX].projectBudget || parseInt(inputs.projectServiceBudgetInput.value) <= 0  ) return alert("There's no enough budget for this project")
+
+    projects[INDEX].projectBudget -= inputs.projectServiceBudgetInput.value
+
+    let service = {
+        serviceName: String(inputs.projectServiceNameInput.value),
+        serviceBudget: parseInt(inputs.projectServiceBudgetInput.value),
+        serviceDescription: String(inputs.projectServiceDescriptionInput.value),
+    }
+
+    if (service.serviceName === "" || service.serviceBudget === null || service.serviceDescription === "") {
+
+        return []
+
+    } else {
+
+        services = projects[INDEX].projectServices
+
+        services.push(service)
+
+        return services
+    }
 }
 
 const submitButton = document.getElementById('edit-project').addEventListener('click', (event) => {
 
     event.preventDefault()
 
-    //EDIT
+    //ERROR MESSAGES
     if (!inputs.projectNameInput) alert("Project Name missing !")
     if (!inputs.projectBudgetInput) alert("Project Budget missing !")
     if (inputs.projectCategoryInput === "none") return alert("Project Category missing !")
 
     const INDEX = parseInt(localStorage.getItem('INDEX'))
 
-    let projects = JSON.parse(localStorage.getItem('projects')) ?? []
-
-    projects[INDEX].projectName = inputs.projectNameInput.value
-    projects[INDEX].projectBudget = inputs.projectBudgetInput.value
-    projects[INDEX].projectCategory = inputs.projectCategoryInput.value
+    projects[INDEX].projectName = String(inputs.projectNameInput.value)
+    projects[INDEX].projectBudget = parseInt(inputs.projectBudgetInput.value)
+    projects[INDEX].projectCategory = String(inputs.projectCategoryInput.value),
+    projects[INDEX].projectServices = addService(INDEX) || []
+    projects[INDEX].numberOfServices = parseInt(projects[INDEX].projectServices.length)
 
     localStorage.setItem('projects', JSON.stringify(projects))
 
