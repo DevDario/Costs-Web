@@ -8,7 +8,7 @@ createProjectButton.addEventListener('click', (event) => {
     const projectDetails = {
         id:projects.length + 1,
         projectName: document.getElementById('project-name').value || null,
-        projectBudget: document.getElementById('project-budget').value || null,
+        projectBudget: parseInt(document.getElementById('project-budget').value) || null,
         projectCategory: document.getElementById('category').value || null,
         numberOfServices: 0,
     }
