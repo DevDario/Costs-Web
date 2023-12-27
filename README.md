@@ -7,13 +7,13 @@ With `Costs` you can simple manage all your projects with this simple, intuitive
 ## What you can do
 
 - Create your project <br>
-    add a name <br>
-    budget <br>
-    category <br>
+    - add a name
+    - budget
+    - category
 - Add Services to the project <br>
-    service name <br>
-    service budget <br>
-    simple description <br>
+    - service name
+    - service budget
+    - simple description
 - Other features comming on new releases 
 
 ## Features
