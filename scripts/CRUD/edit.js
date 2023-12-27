@@ -1,5 +1,7 @@
 let projects = []
 let services = []
+const servicesArea = document.getElementById("services-root")
+const conditionalMessage = document.getElementById('conditional')
 
 function fillFields(projectInfo) {
     //labels
@@ -25,6 +27,45 @@ function fillFields(projectInfo) {
 
 }
 
+function renderServices(projectInfo) {
+
+    if (projectInfo.projectServices.length === 0) {
+
+        root.style.justifyContent = "center"
+        conditionalMessage.innerText = "No Services Added"
+
+    } else {
+
+        conditionalMessage.style.display = "none"
+
+    }
+    
+    projectInfo.projectServices.map(service => {
+        servicesArea.innerHTML +=
+            `
+                <div class="service-card card">
+                    <div class="card-conteiner">
+                        <h3 title="${service.serviceName}" class="service-name-label">
+                            ${service.serviceName.length >= 13 ? service.serviceName.charAt(0).toUpperCase().concat(service.serviceName.charAt(5).toUpperCase() + service.serviceName.charAt(9).toUpperCase() + "...")  : service.serviceName}</h3>
+                        <h5 class="service-budget-label">
+                            Budget: U$ ${service.serviceBudget}
+                        <h5/>
+                        <p class="service-description-label">
+                            About:${service.serviceDescription.length === 0 ? " none" : service.serviceDescription}
+                        </p>
+
+                        <div class="actions">
+                            <div class="delete">
+                                <button onclick="" class="button">Delete <img src="../../images/delete-icon.png" alt="delete icon" /> </button>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            `
+    });
+
+}
+
 //when the window loads, this function is called
 (
     function () {
@@ -45,6 +86,8 @@ function fillFields(projectInfo) {
             let projectToEdit = projects[INDEX]
 
             fillFields(projectToEdit)
+
+            renderServices(projectToEdit)
 
 
         } catch (IDNotFoundError) {
