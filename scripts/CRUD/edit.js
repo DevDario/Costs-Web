@@ -31,7 +31,7 @@ function renderServices(projectInfo) {
 
     if (projectInfo.projectServices.length === 0) {
 
-        root.style.justifyContent = "center"
+        servicesArea.style.justifyContent = "center"
         conditionalMessage.innerText = "No Services Added"
 
     } else {
@@ -39,8 +39,8 @@ function renderServices(projectInfo) {
         conditionalMessage.style.display = "none"
 
     }
-    
-    projectInfo.projectServices.map(service => {
+
+    projectInfo.projectServices.map((service,index) => {
         servicesArea.innerHTML +=
             `
                 <div class="service-card card">
@@ -56,13 +56,30 @@ function renderServices(projectInfo) {
 
                         <div class="actions">
                             <div class="delete">
-                                <button onclick="" class="button">Delete <img src="../../images/delete-icon.png" alt="delete icon" /> </button>
+                                <button onclick="deleteService(${index})" class="button">Delete <img src="../../images/delete-icon.png" alt="delete icon" /> </button>
                             </div>
                         </div> 
                     </div>
                 </div>
             `
     });
+
+}
+
+
+function deleteService(index){
+
+    const INDEX = parseInt(localStorage.getItem('INDEX'))
+
+    projects[INDEX].projectBudget += projects[INDEX].projectServices[index].serviceBudget
+    
+    projects[INDEX].projectServices.splice(index,1)
+
+    projects[INDEX].numberOfServices -= 1
+
+    localStorage.setItem('projects', JSON.stringify(projects))
+
+    window.location.reload()
 
 }
 
