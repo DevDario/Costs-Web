@@ -48,6 +48,52 @@ a {
   background-color: #fcfcfb;
 }
 
+.card:hover {
+  transition: all 340ms ease-in;
+  transform: translateY(-4px);
+}
+
+.card {
+  width: 260px;
+  height: 250px;
+  background-color: #fcfcfb;
+  padding: 2em;
+  border: 1px solid #a61cdd;
+  border-radius: 10px;
+  box-shadow: -8px -4px 15px -3px rgba(0, 0, 0, 0.123);
+  transition: all 700ms ease-out;
+  cursor: pointer;
+}
+
+.service-card {
+  max-height: 190px;
+}
+
+.card-conteiner {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: left;
+  gap: 6px;
+}
+.card-conteiner .actions {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+.card-conteiner .actions .delete button,
+.card-conteiner .actions .edit button {
+  display: flex;
+  align-self: center;
+  align-items: center;
+  padding: 10px 20px;
+}
+.card-conteiner .actions .delete button img,
+.card-conteiner .actions .edit button img {
+  width: 18px;
+  height: 18px;
+}
+
 input,
 textarea {
   margin: 0.7rem auto 2em auto;

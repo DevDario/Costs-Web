@@ -78,6 +78,57 @@ a{
     background-color: $grey-white;
 }
 
+.card:hover{
+    transition: all 340ms ease-in;
+    transform: translateY(-4px);
+}
+
+.card{
+    width: 260px;
+    height: 250px;
+    background-color: $grey-white;
+    padding: calc($section-padding - 1em);
+    border:1px solid $secondary-color;
+    border-radius: $border-radius;
+    box-shadow: -8px -4px 15px -3px rgba(0, 0, 0, 0.123);
+    transition: all 700ms ease-out;
+    cursor: pointer;
+}
+
+.service-card{
+    max-height: 190px;
+}
+
+.card-conteiner{
+    display:flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: left;
+    gap: 6px;
+
+    .actions{
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+
+
+        .delete,
+        .edit{
+            button{
+                display: flex;
+                align-self: center;
+                align-items: center;
+                padding: 10px 20px;
+
+                img{
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+        }
+    }
+}
+
 input,
 textarea{
     margin:.7rem auto 2em auto;
