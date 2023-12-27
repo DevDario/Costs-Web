@@ -28,4 +28,24 @@
   flex-direction: column;
   gap: 20px;
   justify-content: left;
+}
+.main-section .container .services-area {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: left;
+  align-items: left;
+}
+.main-section .container .services-area .services-area-conteiner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: left;
+  align-items: left;
+}
+
+.card .card-conteiner .service-description-label {
+  font-size: 13px;
 }/*# sourceMappingURL=editprojects.css.map */

@@ -55,5 +55,31 @@ $sm-text:16px;
             gap: 20px;
             justify-content: left;
         }
+
+        .services-area{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: left;
+            align-items: left;
+
+            .services-area-conteiner{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 30px;
+                justify-content: left;
+                align-items: left;
+            }
+        }
+    }
+}
+
+.card{
+    .card-conteiner{
+        .service-description-label{
+            font-size: calc($sm-text - 3px);
+        }
     }
 }
