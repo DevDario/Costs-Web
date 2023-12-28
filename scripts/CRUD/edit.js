@@ -85,7 +85,7 @@ function deleteService(index){
 
 }
 
-//when the window loads, this function is called
+
 (
     function () {
 
