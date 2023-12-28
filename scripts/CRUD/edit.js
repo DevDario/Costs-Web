@@ -19,7 +19,7 @@ function fillFields(projectInfo) {
     projectNameLabel.innerHTML = `Project's Name: ${projectInfo.projectName}`
     projectBudgetLabel.innerHTML = `Project's Budget: U$ ${projectInfo.projectBudget},00`
     projectCategoryLabel.innerHTML = `Project's Category: ${projectInfo.projectCategory}`
-    projectUsedBudgetLabel.innerHTML = `Budget Used: U$ 0,00`
+    projectUsedBudgetLabel.innerHTML = `Budget Used: U$ ${projectInfo.usedBudget},00`
 
     projectNameInput.value = `${projectInfo.projectName}`
     projectBudgetInput.value = `${projectInfo.projectBudget}`
@@ -72,6 +72,8 @@ function deleteService(index){
     const INDEX = parseInt(localStorage.getItem('INDEX'))
 
     projects[INDEX].projectBudget += projects[INDEX].projectServices[index].serviceBudget
+    
+    projects[INDEX].usedBudget -= projects[INDEX].projectServices[index].serviceBudget
     
     projects[INDEX].projectServices.splice(index,1)
 
@@ -135,6 +137,8 @@ function addService(INDEX) {
     if (parseInt(inputs.projectServiceBudgetInput.value) >= projects[INDEX].projectBudget || parseInt(inputs.projectServiceBudgetInput.value) <= 0  ) return alert("There's no enough budget for this project")
 
     projects[INDEX].projectBudget -= inputs.projectServiceBudgetInput.value
+
+    projects[INDEX].usedBudget += parseInt(inputs.projectServiceBudgetInput.value) || 0
 
     let service = {
         serviceName: String(inputs.projectServiceNameInput.value),
