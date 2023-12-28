@@ -40,13 +40,13 @@ function renderServices(projectInfo) {
 
     }
 
-    projectInfo.projectServices.map((service,index) => {
+    projectInfo.projectServices.map((service, index) => {
         servicesArea.innerHTML +=
             `
                 <div class="service-card card">
                     <div class="card-conteiner">
                         <h3 title="${service.serviceName}" class="service-name-label">
-                            ${service.serviceName.length >= 13 ? service.serviceName.charAt(0).toUpperCase().concat(service.serviceName.charAt(5).toUpperCase() + service.serviceName.charAt(9).toUpperCase() + "...")  : service.serviceName}</h3>
+                            ${service.serviceName.length >= 13 ? service.serviceName.charAt(0).toUpperCase().concat(service.serviceName.charAt(5).toUpperCase() + service.serviceName.charAt(9).toUpperCase() + "...") : service.serviceName}</h3>
                         <h5 class="service-budget-label">
                             Budget: U$ ${service.serviceBudget}
                         <h5/>
@@ -67,15 +67,15 @@ function renderServices(projectInfo) {
 }
 
 
-function deleteService(index){
+function deleteService(index) {
 
     const INDEX = parseInt(localStorage.getItem('INDEX'))
 
     projects[INDEX].projectBudget += projects[INDEX].projectServices[index].serviceBudget
-    
+
     projects[INDEX].usedBudget -= projects[INDEX].projectServices[index].serviceBudget
-    
-    projects[INDEX].projectServices.splice(index,1)
+
+    projects[INDEX].projectServices.splice(index, 1)
 
     projects[INDEX].numberOfServices -= 1
 
@@ -134,7 +134,7 @@ const inputs = {
 
 function addService(INDEX) {
 
-    if (parseInt(inputs.projectServiceBudgetInput.value) >= projects[INDEX].projectBudget || parseInt(inputs.projectServiceBudgetInput.value) <= 0  ) return alert("There's no enough budget for this project")
+    if (parseInt(inputs.projectServiceBudgetInput.value) >= projects[INDEX].projectBudget || parseInt(inputs.projectServiceBudgetInput.value) <= 0) return alert("There's no enough budget for this project")
 
     projects[INDEX].projectBudget -= inputs.projectServiceBudgetInput.value
 
@@ -174,7 +174,7 @@ const submitButton = document.getElementById('edit-project').addEventListener('c
     projects[INDEX].projectName = String(inputs.projectNameInput.value)
     projects[INDEX].projectBudget = parseInt(inputs.projectBudgetInput.value)
     projects[INDEX].projectCategory = String(inputs.projectCategoryInput.value),
-    projects[INDEX].projectServices = addService(INDEX) || []
+        projects[INDEX].projectServices = addService(INDEX) || []
     projects[INDEX].numberOfServices = parseInt(projects[INDEX].projectServices.length)
 
     localStorage.setItem('projects', JSON.stringify(projects))
