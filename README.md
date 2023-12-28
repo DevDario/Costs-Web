@@ -1,6 +1,6 @@
 # Costs
 
-This ideia came from [Matheus Battisti ReactJS Course](https://github.com/matheusbattisti/curso_react), that I decided to make it using VanillaJS.
+This idea came from [Matheus Battisti ReactJS Course](https://github.com/matheusbattisti/curso_react), that I decided to make it using VanillaJS.
 
 With `Costs` you can simple manage all your projects with this simple, intuitive and super easy system.
 
