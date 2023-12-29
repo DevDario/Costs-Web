@@ -39,7 +39,8 @@
   font-size: 16px;
   font-weight: 500;
 }
-.content-section #root .project-card .card-conteiner .services {
+.content-section #root .project-card .card-conteiner .services,
+.content-section #root .project-card .card-conteiner .deadline {
   margin-top: 15px;
   display: flex;
   flex-direction: row;
@@ -49,7 +50,8 @@
   border-radius: 10px;
   background-color: rgb(242, 242, 242);
 }
-.content-section #root .project-card .card-conteiner .services p {
+.content-section #root .project-card .card-conteiner .services p,
+.content-section #root .project-card .card-conteiner .deadline p {
   padding: 4px;
   border-radius: 10px;
   color: #72018f;
