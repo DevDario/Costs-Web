@@ -13,11 +13,13 @@ createProjectButton.addEventListener('click', (event) => {
         numberOfServices: 0,
         projectServices :[],
         usedBudget: 0,
+        projectDeadline: setProjectDeadline(),
     }
 
     if (!projectDetails.projectName)  alert("Project Name missing !")
     if (!projectDetails.projectBudget)  alert("Project Budget missing !")
     if (projectDetails.projectCategory === "none")  return alert("Project Category missing !")
+    if(projectDetails.projectDeadline === false) return 
 
     projects.push(projectDetails)
     setItensToDB()
@@ -25,6 +27,34 @@ createProjectButton.addEventListener('click', (event) => {
     alert("Project Created Successfully !")
 
 })
+
+function setProjectDeadline(){
+    
+    const deadline = document.getElementById('project-deadline').value
+    const dateFormat = /^\d{4}-\d{2}-\d{2}$/
+    
+    if(deadline.match(dateFormat)){
+        //checks if the deadline is a future date
+        const currentDate = new Date()
+
+        const selectedDate = new Date(deadline)
+
+        if(selectedDate > currentDate){
+
+            return selectedDate
+            
+        }else{
+            alert("Please enter a future date")
+            return false
+        }
+
+    }else{
+
+        alert("Please enter a valid date in the format YYYY-MM-DD.") 
+        return false
+
+    }
+}
 
 
 const setItensToDB = () => localStorage.setItem('projects', JSON.stringify(projects))
