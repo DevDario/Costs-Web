@@ -10,6 +10,7 @@ With `Costs` you can simple manage all your projects with this simple, intuitive
     - add a name
     - budget
     - category
+    - deadline
 - Add Services to the project <br>
     - service name
     - service budget
