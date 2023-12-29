@@ -41,7 +41,7 @@ function setProjectDeadline(){
 
         if(selectedDate > currentDate){
 
-            return selectedDate
+            return selectedDate.toLocaleDateString('en-US',{month: 'long', day: 'numeric', year: 'numeric'})
             
         }else{
             alert("Please enter a future date")
