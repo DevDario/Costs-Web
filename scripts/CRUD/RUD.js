@@ -33,6 +33,10 @@ window.onload = () => {
                             <p>${project.numberOfServices} Services Added<p>
                         </div>
 
+                        <div class="deadline">
+                            <p>${project.projectDeadline}<p>
+                        </div>
+
                         <div class="actions">
                             
                             <div class="edit">

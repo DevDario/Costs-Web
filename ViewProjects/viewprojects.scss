@@ -37,7 +37,7 @@ $sm-text:16px;
 
         .project-card{
             width: 260px;
-            height: 250px;
+            height: 300px;
             background-color: $smoke-white;
             padding: calc($section-padding - 1em);
             border:1px solid $secondary-color;
@@ -63,7 +63,8 @@ $sm-text:16px;
                     font-weight: 500;
                 }
 
-                .services{
+                .services,
+                .deadline{
                     margin-top: 15px;
                     display:flex;
                     flex-direction: row;
