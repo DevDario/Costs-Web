@@ -21,6 +21,9 @@ window.onload = () => {
 
 
     projects.map((project, index) => {
+
+        let isDeadlineEnded = deadlineCheck(project)
+
         root.innerHTML +=
             `
                 <div class="project-card">
@@ -34,13 +37,13 @@ window.onload = () => {
                         </div>
 
                         <div class="deadline">
-                            <p>${deadlineCheck(project)}<p>
+                            <p>${project.projectDeadline}<p>
                         </div>
 
                         <div class="actions">
                             
                             <div class="edit">
-                                <button onclick="editProject(${index})" class="button">Edit <img src="../../images/edit-icon.png" alt="edit icon" /> </button>
+                                <button ${isDeadlineEnded ? "disabled":""} id="edit-project" onclick="editProject(${index})" class="button">Edit <img src="../../images/edit-icon.png" alt="edit icon" /> </button>
                             </div>
 
                             <div class="delete">
@@ -67,17 +70,19 @@ function deleteProject(index) {
 //VERIFY DEADLINE
 function deadlineCheck(project){
     
-    const currentDate = new Date()
+    const currentDate = new Date().toLocaleDateString('en-US',{month:'long', day:'numeric', year:'numeric'})
 
     const projectDeadline = project.projectDeadline
 
-    if(projectDeadline > currentDate){
+    if(projectDeadline <= currentDate){
 
-        return project.projectDeadline = "Deadline Ended"
+        project.projectDeadline = "Deadline Ended"
+
+        return true
 
     }else{
 
-        return projectDeadline
+        return false & projectDeadline
     }
 }
 
