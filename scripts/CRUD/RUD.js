@@ -34,7 +34,7 @@ window.onload = () => {
                         </div>
 
                         <div class="deadline">
-                            <p>${project.projectDeadline}<p>
+                            <p>${deadlineCheck(project)}<p>
                         </div>
 
                         <div class="actions">
@@ -62,6 +62,23 @@ function deleteProject(index) {
     setProjectsToDB()
 
     window.location.reload()
+}
+
+//VERIFY DEADLINE
+function deadlineCheck(project){
+    
+    const currentDate = new Date()
+
+    const projectDeadline = project.projectDeadline
+
+    if(projectDeadline > currentDate){
+
+        return project.projectDeadline = "Deadline Ended"
+
+    }else{
+
+        return projectDeadline
+    }
 }
 
 //EDIT
