@@ -26,7 +26,7 @@ window.onload = () => {
 
         root.innerHTML +=
             `
-                <div class="project-card">
+                <div class="project-card sort-option">
                     <div class="card-conteiner">
                         <h3 title="${project.projectName}" class="project-name-label">${project.projectName.length >= 13 ? project.projectName.charAt(0).toUpperCase().concat(project.projectName.charAt(5).toUpperCase() + project.projectName.charAt(9).toUpperCase() + "...")  : project.projectName}</h3>
                         <h5 class="project-budget-label">Budget: U$ ${project.projectBudget}<h5/>
@@ -65,6 +65,44 @@ function deleteProject(index) {
     setProjectsToDB()
 
     window.location.reload()
+}
+
+//SORT BY NAME
+function sortByName(){
+
+    var list, iterator, switching, elementsToSort, shouldSwitch
+
+    list = root
+    switching = true
+
+    while(switching){
+
+        switching = false
+        elementsToSort = list.getElementsByClassName("sort-option")
+
+        for(iterator = 0; iterator < (elementsToSort.length -1 ); iterator++){
+
+            shouldSwitch = false
+
+            if(elementsToSort[iterator].innerHTML.toLowerCase() > elementsToSort[iterator + 1].toLowerCase()){
+                
+                shouldSwitch = true
+
+                break
+
+            }
+
+        }
+
+        if(shouldSwitch){
+            
+            elementsToSort[iterator].parentNode.insertBefore(elementsToSort[iterator + 1], elementsToSort[iterator])
+
+            switching = true
+
+        }
+    }
+
 }
 
 //VERIFY DEADLINE
