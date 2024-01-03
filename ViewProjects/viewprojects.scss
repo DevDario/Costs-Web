@@ -24,6 +24,16 @@ $sm-text:16px;
     margin:auto auto auto 390px;
     padding: 4em $section-padding;
 
+    .sorting-options{
+        display: flex;
+        flex-direction: row;
+        gap:10px;
+
+        .sort-options{
+            padding: 15px 15px;
+        }
+    }
+
     .container{
         margin-top: 2em;
     }

@@ -2,6 +2,14 @@
   margin: auto auto auto 390px;
   padding: 4em 3em;
 }
+.content-section .sorting-options {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.content-section .sorting-options .sort-options {
+  padding: 15px 15px;
+}
 .content-section .container {
   margin-top: 2em;
 }
