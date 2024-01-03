@@ -22,7 +22,12 @@ $sm-text:16px;
 
 .content-section{
     margin:auto auto auto 390px;
-    padding: 2em $section-padding;
+    padding: 4em $section-padding;
+
+    .container{
+        margin-top: 2em;
+    }
+
     #root{
         display: flex;
         justify-content: left;

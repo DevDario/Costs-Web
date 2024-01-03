@@ -1,6 +1,9 @@
 .content-section {
   margin: auto auto auto 390px;
-  padding: 2em 3em;
+  padding: 4em 3em;
+}
+.content-section .container {
+  margin-top: 2em;
 }
 .content-section #root {
   display: flex;
