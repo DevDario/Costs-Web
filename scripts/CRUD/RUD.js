@@ -70,9 +70,10 @@ function deleteProject(index) {
     window.location.reload()
 }
 
-nameSort.addEventListener('click', sortByName)
 
 //SORT BY NAME
+nameSort.addEventListener('click', sortByName)
+
 function sortByName() {
 
     let list, iterator, switching, elementsToSort, shouldSwitch;
