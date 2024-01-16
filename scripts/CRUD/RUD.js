@@ -87,31 +87,31 @@ function getSortOption(){
 
 function sortByName() {
 
-    let list, iterator, switching, elementsToSort, shouldSwitch;
+    let list, iterator, switching, elementsToSort, shouldSwitch
 
-    list = document.getElementById("root");
-    switching = true;
+    list = document.getElementById("root")
+    switching = true
 
     while (switching) {
 
-        switching = false;
-        elementsToSort = list.getElementsByTagName("LI");
+        switching = false
+        elementsToSort = list.getElementsByTagName("LI")
 
 
         for (iterator = 0; iterator < (elementsToSort.length - 1); iterator++) {
 
-            shouldSwitch = false;
+            shouldSwitch = false
 
             if (elementsToSort[iterator].innerHTML.toLowerCase() > elementsToSort[iterator + 1].innerHTML.toLowerCase()) {
 
-                shouldSwitch = true;
-                break;
+                shouldSwitch = true
+                break
             }
         }
         if (shouldSwitch) {
 
-            elementsToSort[iterator].parentNode.insertBefore(elementsToSort[iterator + 1], elementsToSort[iterator]);
-            switching = true;
+            elementsToSort[iterator].parentNode.insertBefore(elementsToSort[iterator + 1], elementsToSort[iterator])
+            switching = true
         }
     }
 }
