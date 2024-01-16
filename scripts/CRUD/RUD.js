@@ -81,7 +81,7 @@ function getSortOption(){
             sortByName()
             break
         default:
-            alert("This option doens't exists !")
+            alert("This option doesn't exists !")
     }
 }
 
