@@ -80,8 +80,43 @@ function getSortOption(){
         case "Name":
             sortByName()
             break
+        case "Budget":
+            sortByBudget()
+            break
         default:
             alert("This option doesn't exists !")
+    }
+
+    sortProjects()
+}
+
+function sortByBudget(){
+    projects.sort((current, next)=>{
+        return next.projectBudget - current.projectBudget
+    })
+}
+
+function sortProjects() {
+    const list = document.getElementById("root")
+    const elementsToSort = list.getElementsByTagName("LI")
+
+
+    let switching = true
+
+    while (switching) {
+
+        switching = false
+
+        for (let i = 0; i < elementsToSort.length - 1; i++) {
+
+            if (elementsToSort[i].innerHTML.toLowerCase() > elementsToSort[i + 1].innerHTML.toLowerCase()) {
+                
+                elementsToSort[i].parentNode.insertBefore(elementsToSort[i + 1], elementsToSort[i])
+
+                switching = true
+
+            }
+        }
     }
 }
 
