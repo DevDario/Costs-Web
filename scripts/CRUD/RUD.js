@@ -71,8 +71,19 @@ function deleteProject(index) {
 }
 
 
-//SORT BY NAME
-nameSort.addEventListener('click', sortByName)
+//SORT PROJECTS
+
+function getSortOption(){
+    const sortOption = document.getElementById('sort-select').value
+
+    switch(sortOption){
+        case "Name":
+            sortByName()
+            break
+        default:
+            alert("This option doens't exists !")
+    }
+}
 
 function sortByName() {
 
