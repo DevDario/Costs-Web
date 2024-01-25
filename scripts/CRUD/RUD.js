@@ -92,7 +92,8 @@ function getSortOption(){
 
 function sortByBudget(){
     projects.sort((current, next)=>{
-        return next.projectBudget - current.projectBudget
+
+        return current.projectBudget - next.projectBudget
     })
 }
 
@@ -107,11 +108,11 @@ function sortProjects() {
 
         switching = false
 
-        for (let i = 0; i < elementsToSort.length - 1; i++) {
+        for (let iterator = 0; iterator < elementsToSort.length - 1; iterator++) {
 
-            if (elementsToSort[i].innerHTML.toLowerCase() > elementsToSort[i + 1].innerHTML.toLowerCase()) {
+            if (elementsToSort[iterator].textContent.toLowerCase() > elementsToSort[iterator + 1].textContent.toLowerCase()) {
                 
-                elementsToSort[i].parentNode.insertBefore(elementsToSort[i + 1], elementsToSort[i])
+                elementsToSort[iterator].parentNode.insertBefore(elementsToSort[iterator + 1], elementsToSort[iterator])
 
                 switching = true
 
