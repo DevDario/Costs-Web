@@ -245,38 +245,22 @@ textarea{
 
     .container{
         display: flex;
+        align-items: center;
+        align-content: center;
         flex-direction: column;
-        margin: 7em 0 2em 0;
+        margin:0 auto;
+
+        .img{
+            width: 50%;
+            height: 50%;
+        }
         
-        .main-image{
+        canvas{
             display: flex;
             align-items: center;
+            align-content: center;
+            justify-content: center;
             margin: 0 auto;
-            justify-content: center;
-            width: 40%;
-            border-radius: $border-radius;
-            filter: grayscale(100%);
-        }
-
-        .main-text{
-            font-size: $bg-text;
-            color: $main-color-lighter;
-            text-align: center;
-        }
-
-        .main-button{
-            display:flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border:2px solid $secondary-color;
-            padding: $button-padding;
-            border-radius:$border-radius;
-            color: $text-color;
-            background-color: $main-color;
-            font-weight: 300;
-            cursor: pointer;
-            margin:2em auto;
         }
     }
 }

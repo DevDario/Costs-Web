@@ -198,34 +198,19 @@ textarea {
 }
 .main-section .container {
   display: flex;
-  flex-direction: column;
-  margin: 7em 0 2em 0;
-}
-.main-section .container .main-image {
-  display: flex;
   align-items: center;
+  align-content: center;
+  flex-direction: column;
   margin: 0 auto;
-  justify-content: center;
-  width: 40%;
-  border-radius: 10px;
-  filter: grayscale(100%);
 }
-.main-section .container .main-text {
-  font-size: 30px;
-  color: #181818;
-  text-align: center;
+.main-section .container .img {
+  width: 50%;
+  height: 50%;
 }
-.main-section .container .main-button {
+.main-section .container canvas {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  align-content: center;
   justify-content: center;
-  border: 2px solid #a61cdd;
-  padding: 15px 60px;
-  border-radius: 10px;
-  color: #fcfcfb;
-  background-color: #0f0f0f;
-  font-weight: 300;
-  cursor: pointer;
-  margin: 2em auto;
+  margin: 0 auto;
 }/*# sourceMappingURL=style.css.map */
