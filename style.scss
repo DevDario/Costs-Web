@@ -245,17 +245,17 @@ textarea{
 
     .container{
         display: flex;
-        align-items: center;
-        align-content: center;
+        align-items: left;
+        align-content: left;
         flex-direction: column;
-        margin:0 auto;
+        margin:10rem auto 0 auto;
         
         canvas{
             display: flex;
             align-items: center;
             align-content: center;
             justify-content: center;
-            margin: 0 auto;
+            margin: 2rem auto 0 auto;
         }
     }
 }
