@@ -1,0 +1,23 @@
+# Node.js
+node_modules/
+
+# Arquivos temporários
+*.log
+*.pid
+*.lock
+
+# Ambientes
+.env
+
+# Dependências locais
+package-lock.json
+npm-debug.log
+
+# Arquivos de compilação
+/dist
+/build
+
+# Arquivos de configuração
+*.swp
+*.swo
+.DS_Store
