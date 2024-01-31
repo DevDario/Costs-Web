@@ -9,6 +9,9 @@
     while managing a project. Start using it now.">
     <meta name="keywords" content="Costs, Project Managment System, Project Managment, Managment
     Web System, System">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <title>Costs - Your Project Manager</title>
 </head>
 <body>
@@ -54,17 +57,12 @@
         </nav>
 
         <div class="container">
-            <img src="images/main-image.png" alt="Starting A Project" class="main-image" id="large-image" draggable="false">
-            <h1 class="main-text bg-text">
-                Keep on track on every change <br>
-                on your project.
-            </h1>
-            <a href="./NewProject/newproject.html">
-                <button class="main-button bg-button start-button button" id="start">
-                    New Project
-                </button>
-            </a>
+            <canvas id="budgetChart">
+            </canvas>
         </div>
     </main>
+
+    <script type="module" src="chart.config.js"></script>
+
 </body>
 </html>
