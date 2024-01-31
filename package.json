@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/DevDario/Costs-Web/issues"
   },
-  "homepage": "https://github.com/DevDario/Costs-Web#readme"
+  "homepage": "https://github.com/DevDario/Costs-Web#readme",
+  "dependencies": {
+    "chart.js": "^4.4.1"
+  }
 }
