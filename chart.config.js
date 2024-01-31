@@ -23,36 +23,30 @@ function loadProjectsUsedBugdet(){
 
 const ctx = document.getElementById('budgetChart');
 
-const chartData = {
-    labels: ['Budget Spent', 'Projects Created'],
-    datasets: [
-        {
-            label: 'Budget Spent',
-            data: loadProjectsUsedBugdet(),
-            borderWidth: 1,
-            backgroundColor: '#72018f'
-        },
-        {
-            label: 'Projects Created',
-            data: [2, 10, 5, 9, 13, 3],
-            borderWidth: 1,
-            backgroundColor: '#181818'
-        }
-]
-}
-
-const config = {
-    type: 'line',
-    data: {chartData},
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Budget Spent', 'Projects Created'],
+        datasets: [
+            {
+                label: 'Budget Spent',
+                data: loadProjectsBudget(),
+                borderWidth: 1,
+                backgroundColor: '#72018f',
+            },
+            {
+                label: 'Projects Created',
+                data: loadProjectsBudget(),
+                borderWidth: 1,
+                backgroundColor: '#181818',
             }
-        },
-        
+        ]
     },
-    plugins: []
-}
-
-new Chart(ctx,config)
+    options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+    }
+})
