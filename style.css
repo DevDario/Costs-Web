@@ -203,10 +203,6 @@ textarea {
   flex-direction: column;
   margin: 0 auto;
 }
-.main-section .container .img {
-  width: 50%;
-  height: 50%;
-}
 .main-section .container canvas {
   display: flex;
   align-items: center;
