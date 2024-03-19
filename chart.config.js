@@ -35,28 +35,62 @@ function loadProjectsUsedBugdet(){
     return usedBudgets
 }
 
+//Charts
 
-const ctx = document.getElementById('budgetChart');
 
-new Chart(ctx, {
+//Category chart
+const categories = {};
+projects.forEach(project => {
+    if (project.projectCategory in categories) {
+        categories[project.projectCategory] += project.projectBudget;
+    } else {
+        categories[project.projectCategory] = project.projectBudget;
+    }
+});
+
+const labels = Object.keys(categories);
+const data = Object.values(categories);
+
+const categoryChart = document.getElementById('categoryChart').getContext('2d');
+const catChart = new Chart(categoryChart, {
+    type: 'pie',
+    data: {
+        labels: labels,
+        datasets: [{
+            data: data,
+            backgroundColor: [
+                '#181818',
+                'rgba(54, 162, 235, 0.5)',
+                '#a61cdd'
+            ]
+        }]
+    },
+});
+
+//Number of projects chart
+
+const categoriesCount = {};
+projects.forEach(project => {
+    if (project.projectCategory in categoriesCount) {
+        categoriesCount[project.projectCategory]++;
+    } else {
+        categoriesCount[project.projectCategory] = 1;
+    }
+});
+
+const labels2 = Object.keys(categoriesCount);
+const data2 = Object.values(categoriesCount);
+
+const projectNumberChart = document.getElementById('projectsNumberChart').getContext('2d');
+const pNumberChart = new Chart(projectNumberChart, {
     type: 'bar',
     data: {
-        labels: ['Lowest Budget', 'Highest Budget'],
-        datasets: [
-            
-            {
-                label: 'Highest Budget',
-                data: loadProjectsBudget(),
-                borderWidth: 1,
-                backgroundColor: '#181818',
-            }
-        ]
+        labels: labels2,
+        datasets: [{
+            label: 'Number of Projects',
+            data: data2,
+            backgroundColor: '#a61cdd95',
+            borderWidth: 1
+        }]
     },
-    options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-    }
-})
+});
