@@ -41,14 +41,9 @@ const ctx = document.getElementById('budgetChart');
 new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Lowest Budget', 'Higher Budget'],
+        labels: ['Lowest Budget', 'Highest Budget'],
         datasets: [
-            {
-                label: 'Lowest Budget',
-                data: loadProjectsUsedBugdet(),
-                borderWidth: 1,
-                backgroundColor: '#72018f',
-            },
+            
             {
                 label: 'Highest Budget',
                 data: loadProjectsBudget(),
