@@ -11,6 +11,21 @@ function loadProjectsBudget(){
     return budgets
 }
 
+function loadTotalBudget(){
+    const totalBudget = 0
+    projects.map((project)=>{
+        totalBudget += project.projectBudget
+    })
+
+    return totalBudget
+}
+
+function createdProjects(){
+    let projects = fetchProjects()
+
+    return projects.length
+}
+
 function loadProjectsUsedBugdet(){
     const usedBudgets = []
     projects.map((project)=>{
@@ -26,16 +41,16 @@ const ctx = document.getElementById('budgetChart');
 new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Budget Spent', 'Projects Created'],
+        labels: ['Lowest Budget', 'Higher Budget'],
         datasets: [
             {
-                label: 'Budget Spent',
-                data: loadProjectsBudget(),
+                label: 'Lowest Budget',
+                data: loadProjectsUsedBugdet(),
                 borderWidth: 1,
                 backgroundColor: '#72018f',
             },
             {
-                label: 'Projects Created',
+                label: 'Highest Budget',
                 data: loadProjectsBudget(),
                 borderWidth: 1,
                 backgroundColor: '#181818',
