@@ -7,42 +7,6 @@ const charts = {
     categoriesCountChart: document.getElementById('projectsNumberChart')
 }
 
-function loadProjectsBudget(){
-    const budgets = []
-    projects.map((project)=>{
-        budgets.push(project.projectBudget)
-    })
-
-    return budgets
-}
-
-function loadTotalBudget(){
-    const totalBudget = 0
-    projects.map((project)=>{
-        totalBudget += project.projectBudget
-    })
-
-    return totalBudget
-}
-
-function createdProjects(){
-    let projects = fetchProjects()
-
-    return projects.length
-}
-
-function loadProjectsUsedBugdet(){
-    const usedBudgets = []
-    projects.map((project)=>{
-        usedBudgets.push(project.usedBudget)
-    })
-
-    return usedBudgets
-}
-
-//Charts
-
-
 //Budget per category chart
 const categories = {};
 projects.forEach(project => {
