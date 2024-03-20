@@ -36,7 +36,7 @@ const bCategoryChart = new Chart(charts.budgetPerCategoryChart, {
             backgroundColor: [
                 '#a61cdf',
                 '#181818',
-                '#f1df40'
+                '#ce85ff'
             ]
         }]
     },
@@ -73,7 +73,7 @@ const cCountChart = new Chart(charts.categoriesCountChart, {
             backgroundColor: [
                 '#a61cdf',
                 '#181818',
-                '#f1df40'
+                '#ce85ff'
             ],
             borderWidth: 1
         }]
