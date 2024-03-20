@@ -4,7 +4,8 @@ const projects = fetchProjects()
 
 const charts = {
     budgetPerCategoryChart: document.getElementById('categoryChart'),
-    categoriesCountChart: document.getElementById('projectsNumberChart')
+    categoriesCountChart: document.getElementById('categoryCountChart'),
+    projectsGraphic: document.getElementById('projectsGraphic'),
 }
 
 //Budget per category chart
@@ -27,9 +28,9 @@ const bCategoryChart = new Chart(charts.budgetPerCategoryChart, {
         datasets: [{
             data: budgetPerCategoryChartData,
             backgroundColor: [
+                '#a61cdf',
                 '#181818',
-                'rgba(54, 162, 235, 0.5)',
-                '#a61cdd'
+                '#f1df40'
             ]
         }]
     },
@@ -50,14 +51,68 @@ const categoryCountChartLabels = Object.keys(categoriesCount);
 const categoryCountChartData = Object.values(categoriesCount);
 
 const cCountChart = new Chart(charts.categoriesCountChart, {
-    type: 'bar',
+    type: 'doughnut',
     data: {
         labels: categoryCountChartLabels,
         datasets: [{
             label: 'Number of Categories',
             data: categoryCountChartData,
-            backgroundColor: '#a61cdd95',
+            backgroundColor: [
+                '#a61cdf',
+                '#181818',
+                '#f1df40'
+            ],
             borderWidth: 1
         }]
     },
 });
+
+//Created Projects per Month Count Chart
+
+const monthsCount = {};
+projects.forEach(project => {
+
+    const month = new Date(project.projectDeadline).getMonth().toString()
+
+    if (month in monthsCount) {
+        monthsCount[month]++;
+    } else {
+        monthsCount[month] = 1;
+    }
+});
+
+const pCountChart = new Chart(charts.projectsGraphic,{
+    type: 'line',
+    data: {
+        labels: ['January','February','March','April','May','June','July','August','September','October','November','December'],
+        datasets: [
+            {
+                label: 'Months',
+                data: Object.keys(monthsCount),
+                borderColor: '#212121',
+                backgroundColor: '#f1df40',
+                stack: 'combined',
+                type: 'bar'
+            },
+            {
+                label: 'Projects Created',
+                data: Object.values(monthsCount),
+                borderColor: '#212121',
+                backgroundColor: '#a61cdf',
+                stack: 'combined'
+            }
+        ]},
+    options: {
+        plugins: {
+        title: {
+            display: true,
+            text: 'Number of Projects Created on Each Month'
+            }
+        },
+    scales: {
+        y: {
+                stacked: true
+            }
+        }
+    },
+})
