@@ -21,10 +21,16 @@ projects.forEach(project => {
 const budgetPerCategoryChartLabels = Object.keys(categories);
 const budgetPerCategoryChartData = Object.values(categories);
 
+const totalBudget = budgetPerCategoryChartData.reduce((acc,curr)=>acc + curr,0) 
+const budgetsInPercentage = budgetPerCategoryChartLabels.map((label,index)=>{
+    const percentage = ((budgetPerCategoryChartData[index] / totalBudget) * 100).toFixed(2)
+    return `${label} (${percentage}%)`
+})
+
 const bCategoryChart = new Chart(charts.budgetPerCategoryChart, {
     type: 'pie',
     data: {
-        labels: budgetPerCategoryChartLabels,
+        labels: budgetsInPercentage,
         datasets: [{
             data: budgetPerCategoryChartData,
             backgroundColor: [
@@ -55,7 +61,7 @@ const cCountChart = new Chart(charts.categoriesCountChart, {
     data: {
         labels: categoryCountChartLabels,
         datasets: [{
-            label: 'Number of Categories',
+            label: 'Projects with this category',
             data: categoryCountChartData,
             backgroundColor: [
                 '#a61cdf',
@@ -86,14 +92,6 @@ const pCountChart = new Chart(charts.projectsGraphic,{
     data: {
         labels: ['January','February','March','April','May','June','July','August','September','October','November','December'],
         datasets: [
-            {
-                label: 'Months',
-                data: Object.keys(monthsCount),
-                borderColor: '#212121',
-                backgroundColor: '#f1df40',
-                stack: 'combined',
-                type: 'bar'
-            },
             {
                 label: 'Projects Created',
                 data: Object.values(monthsCount),
