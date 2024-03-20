@@ -2,6 +2,11 @@ const fetchProjects = () => JSON.parse(localStorage.getItem('projects')) ?? []
 
 const projects = fetchProjects()
 
+const charts = {
+    budgetPerCategoryChart: document.getElementById('categoryChart'),
+    categoriesCountChart: document.getElementById('projectsNumberChart')
+}
+
 function loadProjectsBudget(){
     const budgets = []
     projects.map((project)=>{
@@ -38,7 +43,7 @@ function loadProjectsUsedBugdet(){
 //Charts
 
 
-//Category chart
+//Budget per category chart
 const categories = {};
 projects.forEach(project => {
     if (project.projectCategory in categories) {
@@ -48,16 +53,15 @@ projects.forEach(project => {
     }
 });
 
-const labels = Object.keys(categories);
-const data = Object.values(categories);
+const budgetPerCategoryChartLabels = Object.keys(categories);
+const budgetPerCategoryChartData = Object.values(categories);
 
-const categoryChart = document.getElementById('categoryChart').getContext('2d');
-const catChart = new Chart(categoryChart, {
+const bCategoryChart = new Chart(charts.budgetPerCategoryChart, {
     type: 'pie',
     data: {
-        labels: labels,
+        labels: budgetPerCategoryChartLabels,
         datasets: [{
-            data: data,
+            data: budgetPerCategoryChartData,
             backgroundColor: [
                 '#181818',
                 'rgba(54, 162, 235, 0.5)',
@@ -67,7 +71,7 @@ const catChart = new Chart(categoryChart, {
     },
 });
 
-//Number of projects chart
+//Categories Count Chart
 
 const categoriesCount = {};
 projects.forEach(project => {
@@ -78,17 +82,16 @@ projects.forEach(project => {
     }
 });
 
-const labels2 = Object.keys(categoriesCount);
-const data2 = Object.values(categoriesCount);
+const categoryCountChartLabels = Object.keys(categoriesCount);
+const categoryCountChartData = Object.values(categoriesCount);
 
-const projectNumberChart = document.getElementById('projectsNumberChart').getContext('2d');
-const pNumberChart = new Chart(projectNumberChart, {
+const cCountChart = new Chart(charts.categoriesCountChart, {
     type: 'bar',
     data: {
-        labels: labels2,
+        labels: categoryCountChartLabels,
         datasets: [{
-            label: 'Number of Projects',
-            data: data2,
+            label: 'Number of Categories',
+            data: categoryCountChartData,
             backgroundColor: '#a61cdd95',
             borderWidth: 1
         }]
