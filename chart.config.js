@@ -45,6 +45,8 @@ const bCategoryChart = new Chart(charts.budgetPerCategoryChart, {
 //Categories Count Chart
 
 const categoriesCount = {};
+const totalProjects = projects.length
+
 projects.forEach(project => {
     if (project.projectCategory in categoriesCount) {
         categoriesCount[project.projectCategory]++;
@@ -56,10 +58,15 @@ projects.forEach(project => {
 const categoryCountChartLabels = Object.keys(categoriesCount);
 const categoryCountChartData = Object.values(categoriesCount);
 
+const categoryCountInPercentage = Object.keys(categoriesCount).map(category=>{
+    const percentage = ((categoriesCount[category] / totalProjects) * 100).toFixed(2)
+    return `${category} (${percentage}%)`
+})
+
 const cCountChart = new Chart(charts.categoriesCountChart, {
     type: 'doughnut',
     data: {
-        labels: categoryCountChartLabels,
+        labels: categoryCountInPercentage,
         datasets: [{
             label: 'Projects with this category',
             data: categoryCountChartData,
