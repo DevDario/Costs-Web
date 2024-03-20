@@ -208,6 +208,8 @@ textarea {
   flex-direction: column;
   align-items: left;
   align-content: left;
+  justify-content: space-between;
+  gap: 25px;
 }
 .main-section .container .charts .charts-section-title {
   margin-bottom: 2rem;
