@@ -8,6 +8,7 @@ node_modules/
 
 # Ambientes
 .env
+.ENV
 
 # Dependências locais
 package-lock.json
