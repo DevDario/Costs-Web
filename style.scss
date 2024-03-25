@@ -248,14 +248,70 @@ textarea{
         align-items: left;
         align-content: left;
         flex-direction: column;
-        margin:10rem auto 0 auto;
-        
-        canvas{
+        margin:6rem auto 0 auto;
+
+        .charts{
             display: flex;
-            align-items: center;
-            align-content: center;
-            justify-content: center;
-            margin: 2rem auto 0 auto;
+            flex-direction: column;
+            align-items: left;
+            align-content: left;
+            justify-content: space-between;
+            gap:25px;
+
+            .charts-section-title{
+                margin-bottom: 2rem;
+            }
+
+            .top-graphic{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                gap: 20px;
+
+                .projects-graphic-container{
+                    background-color:$grey-white;
+                    padding:20px;
+                    width: 100%;
+                    border:1px solid $secondary-color;
+                    border-radius:$border-radius;
+                }
+            }
+
+            .bottom-charts{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                gap: 20px;
+
+                .category-chart-container{
+                    background-color:$grey-white;
+                    padding:20px;
+                    width: 100%;
+                    border:1px solid $secondary-color;
+                    border-radius:$border-radius;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: left;
+                    align-content: left;
+                }
+
+                .category-count-chart-container{
+                    background-color:$grey-white;
+                    padding:20px;
+                    width: 100%;
+                    border:1px solid $secondary-color;
+                    border-radius:$border-radius;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: left;
+                    align-content: left;
+                }
+
+            }
+
         }
+        
     }
 }

@@ -57,8 +57,40 @@
         </nav>
 
         <div class="container">
-            <canvas width="250" height="250" id="budgetChart">
-            </canvas>
+            <div class="charts">
+
+                <div class="charts-section-title">
+                    <h1 class="title chart-section-header">Dasboard</h1>
+                    <p class="title-description description">
+                        See all your progress in one place
+                    </p>
+                </div>
+
+                <div class="top-graphic">
+
+                    <div class="projects-graphic-container chart-box">
+                        <h2 class="chart-title title graphic-title">Projects</h2>
+                        <canvas width="400" height="260" id="projectsGraphic"></canvas>
+                    </div>
+
+                </div>
+
+                <div class="bottom-charts">
+                    <div class="category-chart-container chart-box">
+                        <h2 class="chart-title title">Budget Per Category</h2>
+                        <canvas width="250" height="250" id="categoryChart">
+                        </canvas>
+                    </div>
+
+                    <div class="category-count-chart-container chart-box">
+                        <h2 class="chart-title title">Category Count</h2>
+                        <canvas width="250" height="250" id="categoryCountChart">
+                        </canvas>
+                    </div>
+
+                    
+                </div>
+            </div>
         </div>
     </main>
 
