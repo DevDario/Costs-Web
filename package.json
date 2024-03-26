@@ -2,7 +2,7 @@
   "name": "costs-web",
   "version": "1.0.0",
   "description": "A project managment system",
-  "main": "index.html",
+  "main": "Login/login.html",
   "scripts": {
     "test": "jest"
   },
