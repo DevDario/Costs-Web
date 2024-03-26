@@ -25,7 +25,6 @@
   },
   "homepage": "https://github.com/DevDario/Costs-Web#readme",
   "dependencies": {
-    "chart.js": "^4.4.1",
-    "firebase": "^10.9.0"
+    "chart.js": "^4.4.1"
   }
 }
