@@ -23,5 +23,10 @@
   "homepage": "https://github.com/DevDario/Costs-Web#readme",
   "dependencies": {
     "chart.js": "^4.4.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.3",
+    "@babel/preset-env": "^7.24.3",
+    "babel-loader": "^9.1.3"
   }
 }
