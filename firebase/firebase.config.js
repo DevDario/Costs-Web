@@ -1,16 +1,16 @@
-import firebase from 'firebase/app'
-import 'firebase/database'
+(
+    function (){
+    
+        const firebaseConfig = {
+            apiKey:"AIzaSyAkVDVqfuvDKFuqBCXS4P5Isa7dR6farz4",
+            authDomain:"costs-3c97a.firebaseapp.com",
+            databaseURL:"https://costs-3c97a-default-rtdb.firebaseio.com",
+            projectId:"costs-3c97a",
+            storageBucket:"costs-3c97a.appspot.com",
+            messagingSenderId:"99035226299",
+            appId:"1:99035226299:web:30e9e9de8bc9983519499e",
+        }
 
-const firebaseConfig = {
-    apiKey:process.env.FIREBASE_API_KEY,
-    authDomain:process.env.FIREBASE_AUTH_DOMAIN,
-    databaseURL:process.env.FIREBASE_DB_URL,
-    projectId:process.env.FIREBASE_PROJECT_ID,
-    storageBucket:process.env.FIREBASE_STORAGE_BUCKET,
-    messagingSenderId:process.env.FIREBASE_MESSAGING_SENDER_ID,
-    appId:process.env.FIREBASE_APP_ID,
-}
-
-firebase.initializeApp(firebaseConfig)
-
-export const db = firebase.database()
+        firebase.initializeApp(firebaseConfig)
+    }
+)()
