@@ -45,11 +45,11 @@ window.onload = () => {
                         <div class="actions">
                             
                             <div class="edit">
-                                <button ${isDeadlineEnded ? "disabled" : ""} id="edit-project" onclick="editProject(${index})" class="button">Edit <img src="../../images/edit-icon.png" alt="edit icon" /> </button>
+                                <button ${isDeadlineEnded ? "disabled" : ""} id="edit-project" class="button">Edit <img src="../../images/edit-icon.png" alt="edit icon" /> </button>
                             </div>
 
                             <div class="delete">
-                                <button onclick="deleteProject(${index})" class="button">Delete <img src="../../images/delete-icon.png" alt="delete icon" /> </button>
+                                <button class="button" id="delete-project-${index}">Delete <img src="../../images/delete-icon.png" alt="delete icon" /> </button>
                             </div>
                             
                         </div>
@@ -57,6 +57,12 @@ window.onload = () => {
                 </div>
                 </li>
             `
+
+            const deleteButton = document.getElementById(`delete-project-${index}`);
+            deleteButton.addEventListener('click', () => deleteProject(index));
+
+            const editButton = document.getElementById(`edit-project-${index}`);
+            editButton.addEventListener('click', () => editProject(index));
     })
 }
 
