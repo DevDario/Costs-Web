@@ -1,3 +1,6 @@
+// Reference to the firebase database
+const db = firebase.database()
+
 let projects = []
 const createProjectButton = document.getElementById('create-project')
 
