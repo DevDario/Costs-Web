@@ -5,7 +5,7 @@
   "main": "Login/login.html",
   "scripts": {
     "test": "jest",
-    "build": "webpack"
+    "build": "webpack --watch"
   },
   "repository": "git+https://github.com/DevDario/Costs-Web.git",
   "keywords": [
