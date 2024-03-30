@@ -22,3 +22,5 @@ npm-debug.log
 *.swp
 *.swo
 .DS_Store
+
+/firebase/firebase.config.js
