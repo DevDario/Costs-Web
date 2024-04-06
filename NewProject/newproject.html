@@ -70,7 +70,7 @@
 
                 <label for="date">Project's Deadline</label>
                 
-                <input type="text" class="input" name="date" id="project-deadline" placeholder="YYYY-MM-DD">
+                <input type="date" class="input" name="date" id="project-deadline" placeholder="YYYY-MM-DD">
 
                 <button type="submit" class="create-project-button button" id="create-project">
                     Create Project
@@ -79,6 +79,12 @@
         </div>
     </main>
 
-    <script src="../scripts/CRUD/create.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-database.js"></script>
+
+    <script src="../firebase/firebase.config.js"></script>
+    <script src="../dist/newProject.bundle.js"></script>
+
 </body>
 </html>

@@ -8,6 +8,7 @@ node_modules/
 
 # Ambientes
 .env
+.ENV
 
 # Dependências locais
 package-lock.json
@@ -21,3 +22,9 @@ npm-debug.log
 *.swp
 *.swo
 .DS_Store
+
+/firebase/firebase.config.js
+/.vscode
+/scripts/userAuth.js
+/firebase
+/Login
