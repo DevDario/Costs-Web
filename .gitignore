@@ -25,3 +25,6 @@ npm-debug.log
 
 /firebase/firebase.config.js
 /.vscode
+/scripts/userAuth.js
+/firebase
+/Login
