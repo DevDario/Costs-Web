@@ -1,6 +1,31 @@
-# Costs Web Platform
+<div align="center">
+
+![costs-icon](/images/costs-icon.png)<br>
+<h1>Costs - Your projects manager</h1>
+
+<div style="display:flex; gap:9px; flex-wrap:wrap;">
+
+![maintained badge](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
+
+![license badge](https://img.shields.io/github/license/DevDario/Costs-web.svg)
+
+![issues badge](https://img.shields.io/github/issues/DevDario/Costs-web.svg)
+
+![issues closed badge](https://img.shields.io/github/issues-closed/DevDario/Costs-web.svg)
+
+![pr's badge](https://img.shields.io/github/issues-pr/DevDario/Costs-web.svg)
+
+![closed pr's badge](https://img.shields.io/github/issues-pr-closed/DevDario/Costs-web.svg)
+
+
+</div>
+
+</div>
 
 ## Overview
+
+![costs-icon](/images/dashboard-photo.png)
+
 The Costs Web Platform is a project management tool designed to help users manage their projects effectively. It allows users to create, view, edit, and delete projects, as well as perform various operations such as sorting projects by name or budget.
 
 ## Features
@@ -23,7 +48,7 @@ The Costs Web Platform is a project management tool designed to help users manag
 ## Installation
 1. Clone the repository:
    ```
-   git clone https://github.com/your-username/Costs-Web.git
+   git clone https://github.com/DevDario/Costs-Web.git
    ```
 2. Navigate to the project directory:
    ```
