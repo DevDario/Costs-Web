@@ -99,7 +99,7 @@ function deleteService(index) {
 
                 alert("You don't have any created projects. Let's create one !")
 
-                window.location.href = `http://127.0.0.1:5500/NewProject/newproject.html`
+                window.location.href = `http://127.0.0.1:3333/NewProject/newproject.html`
             }
 
             let projectToEdit = projects[INDEX]
@@ -113,7 +113,7 @@ function deleteService(index) {
 
             alert("You must select a project to edit. We'll take you there.")
 
-            window.location.href = `http://127.0.0.1:5500/ViewProjects/viewprojects.html`
+            window.location.href = `http://127.0.0.1:3333/ViewProjects/viewprojects.html`
 
         }
 
