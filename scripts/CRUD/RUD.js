@@ -45,7 +45,7 @@ window.onload = () => {
                         <div class="actions">
                             
                             <div class="edit">
-                                <button ${isDeadlineEnded ? "disabled" : ""} id="edit-project" class="button">Edit <img src="../../images/edit-icon.png" alt="edit icon" /> </button>
+                                <button ${isDeadlineEnded ? "" : "disabled"} id="edit-project-${index}" class="button">Edit <img src="../../images/edit-icon.png" alt="edit icon" /> </button>
                             </div>
 
                             <div class="delete">
@@ -190,7 +190,7 @@ function editProject(index) {
     //stores the project's position in the array on localStorage for further use in the editing page
     localStorage.setItem('INDEX', String(index))
 
-    window.location.href = "http://127.0.0.1:5500/EditProjects/editProjects.html"
+    window.location.href = "http://127.0.0.1:3333/EditProjects/editProjects.html"
 }
 //DB Operations
 const getProjectsFromDB = () => JSON.parse(localStorage.getItem('projects')) ?? []
