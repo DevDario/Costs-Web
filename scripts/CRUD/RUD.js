@@ -2,25 +2,21 @@ const root = document.getElementById('root')
 const conditionalMessage = document.getElementById('conditional')
 const nameSort = document.getElementById('sort-by-name')
 
-let projects = []
+let projects
 
-//READ
-window.onload = () => {
+function fetchProjects(){
+    fetch('http://localhost:8080/project/all')
+    .then(response => response.json())
+    .then(projects =>{
 
-    projects = getProjectsFromDB()
+        if (projects.length === 0) {
+            root.style.justifyContent = "center"
+            conditionalMessage.innerText = "No Projects Found"
+        } else {
+            conditionalMessage.style.display = "none"
+        }
 
-    if (projects.length === 0) {
-
-        root.style.justifyContent = "center"
-        conditionalMessage.innerText = "No Projects Found"
-
-    } else {
-
-        conditionalMessage.style.display = "none"
-
-    }
-
-
+    // renders all projects
     projects.map((project, index) => {
 
         let isDeadlineEnded = deadlineCheck(project)
@@ -30,22 +26,22 @@ window.onload = () => {
             <li>
                 <div class="project-card sort-option">
                     <div class="card-conteiner">
-                        <h3 title="${project.projectName}" class="project-name-label">${project.projectName.length >= 13 ? project.projectName.charAt(0).toUpperCase().concat(project.projectName.charAt(5).toUpperCase() + project.projectName.charAt(9).toUpperCase() + "...") : project.projectName}</h3>
-                        <h5 class="project-budget-label">Budget: U$ ${project.projectBudget}<h5/>
-                        <p class="project-category-label">Category:${project.projectCategory}</p>
+                        <h3 title="${project.name}" class="project-name-label">${project.name.length >= 13 ? project.name.charAt(0).toUpperCase().concat(project.name.charAt(5).toUpperCase() + project.name.charAt(9).toUpperCase() + "...") : project.name}</h3>
+                        <h5 class="project-budget-label">Budget: U$ ${project.budget}<h5/>
+                        <p class="project-category-label">Category:${project.category.toLowerCase()}</p>
                     
                         <div class="services">
-                            <p>${project.numberOfServices} Services Added<p>
+                            <p>${project.numServices} Services Added<p>
                         </div>
 
                         <div class="deadline">
-                            <p>${project.projectDeadline}<p>
+                            <p>${new Date(project.deadline).toLocaleDateString('en-US',{month: 'long', day: 'numeric', year: 'numeric'})}<p>
                         </div>
 
                         <div class="actions">
                             
                             <div class="edit">
-                                <button ${isDeadlineEnded ? "" : "disabled"} id="edit-project-${index}" class="button">Edit <img src="../../images/edit-icon.png" alt="edit icon" /> </button>
+                                <button ${isDeadlineEnded ? "disabled" : ""} id="edit-project-${index}" class="button">Edit <img src="../../images/edit-icon.png" alt="edit icon" /> </button>
                             </div>
 
                             <div class="delete">
@@ -64,6 +60,14 @@ window.onload = () => {
             const editButton = document.getElementById(`edit-project-${index}`);
             editButton.addEventListener('click', () => editProject(index));
     })
+    })
+    .catch(error => console.error('Erro:', error));
+}
+
+window.onload = () => {
+
+    fetchProjects()
+    
 }
 
 //DELETE
@@ -165,7 +169,7 @@ function deadlineCheck(project) {
 
     const projectDeadline = project.projectDeadline
 
-    if (projectDeadline <= currentDate) {
+    if (projectDeadline >= currentDate) {
 
         project.projectDeadline = "Deadline Ended"
 
