@@ -21,6 +21,8 @@ function fetchProjects(){
 
         let isDeadlineEnded = deadlineCheck(project)
 
+        index++
+
         root.innerHTML +=
             `
             <li>
@@ -45,23 +47,18 @@ function fetchProjects(){
                             </div>
 
                             <div class="delete">
-                                <button class="button" id="delete-project-${index}">Delete <img src="../../images/delete-icon.png" alt="delete icon" /> </button>
+                                <button class="button" id="delete-project-${index}" onclick="deleteProject(${index})" >Delete <img src="../../images/delete-icon.png" alt="delete icon" /> </button>
                             </div>
                             
                         </div>
                     </div>
                 </div>
                 </li>
+                ${index}
             `
-
-            const deleteButton = document.getElementById(`delete-project-${index}`);
-            deleteButton.addEventListener('click', () => deleteProject(index));
-
-            const editButton = document.getElementById(`edit-project-${index}`);
-            editButton.addEventListener('click', () => editProject(index));
     })
     })
-    .catch(error => console.error('Erro:', error));
+    .catch(error => console.error('Error while fetching projects --> \n', error));
 }
 
 window.onload = () => {
@@ -73,11 +70,24 @@ window.onload = () => {
 //DELETE
 function deleteProject(index) {
 
-    projects.splice(index, 1)
+    fetch(`http://localhost:8080/project/del/${index}`,{
+        method:"DELETE"
+    })
+    .then(response => response.json())
+    .then((responseData)=>{
+        
+        if(responseData.ok){
+            alert(`Deleted Sucessfully !`)
+        }else{
+            alert(`Project was not deleted !`)
+        }
+        
+    })
+    .catch((error)=>{
+        console.log(`Something went south when deleting the project -> \n \n ${error.message} \n \n `)
+    })
 
-    setProjectsToDB()
-
-    window.location.reload()
+    //window.location.reload()
 }
 
 
