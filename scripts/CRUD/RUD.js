@@ -87,7 +87,7 @@ function deleteProject(index) {
         console.log(`Something went south when deleting the project -> \n \n ${error.message} \n \n `)
     })
 
-    //window.location.reload()
+    window.location.reload()
 }
 
 
