@@ -54,7 +54,6 @@ function fetchProjects(){
                     </div>
                 </div>
                 </li>
-                ${index}
             `
     })
     })
