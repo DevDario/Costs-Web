@@ -1,5 +1,6 @@
 let projects = []
 let services = []
+const PRID = localStorage.getItem("PRID")
 const servicesArea = document.getElementById("services-root")
 const conditionalMessage = document.getElementById('conditional')
 
@@ -16,20 +17,20 @@ function fillFields(projectInfo) {
     const projectCategoryInput = document.getElementById('category')
 
 
-    projectNameLabel.innerHTML = `Project's Name: ${projectInfo.projectName}`
-    projectBudgetLabel.innerHTML = `Project's Budget: U$ ${projectInfo.projectBudget},00`
-    projectCategoryLabel.innerHTML = `Project's Category: ${projectInfo.projectCategory}`
+    projectNameLabel.innerHTML = `Project's Name: ${projectInfo.name}`
+    projectBudgetLabel.innerHTML = `Project's Budget: U$ ${projectInfo.budget},00`
+    projectCategoryLabel.innerHTML = `Project's Category: ${projectInfo.category}`
     projectUsedBudgetLabel.innerHTML = `Budget Used: U$ ${projectInfo.usedBudget},00`
 
-    projectNameInput.value = `${projectInfo.projectName}`
-    projectBudgetInput.value = `${projectInfo.projectBudget}`
-    projectCategoryInput.value = `${projectInfo.projectCategory}`
+    projectNameInput.value = `${projectInfo.name}`
+    projectBudgetInput.value = `${projectInfo.budget}`
+    projectCategoryInput.value = `${projectInfo.category}`
 
 }
 
 function renderServices(projectInfo) {
 
-    if (projectInfo.projectServices.length === 0) {
+    if (projectInfo.services.length === 0) {
 
         servicesArea.style.justifyContent = "center"
         conditionalMessage.innerText = "No Services Added"
@@ -40,18 +41,18 @@ function renderServices(projectInfo) {
 
     }
 
-    projectInfo.projectServices.map((service, index) => {
+    projectInfo.services.map((service, index) => {
         servicesArea.innerHTML +=
             `
                 <div class="service-card card">
                     <div class="card-conteiner">
-                        <h3 title="${service.serviceName}" class="service-name-label">
-                            ${service.serviceName.length >= 13 ? service.serviceName.charAt(0).toUpperCase().concat(service.serviceName.charAt(5).toUpperCase() + service.serviceName.charAt(9).toUpperCase() + "...") : service.serviceName}</h3>
+                        <h3 title="${service.name}" class="service-name-label">
+                            ${service.name.length >= 13 ? service.name.charAt(0).toUpperCase().concat(service.name.charAt(5).toUpperCase() + service.name.charAt(9).toUpperCase() + "...") : service.name}</h3>
                         <h5 class="service-budget-label">
-                            Budget: U$ ${service.serviceBudget}
+                            Budget: U$ ${service.budget}
                         <h5/>
                         <p class="service-description-label">
-                            About:${service.serviceDescription.length === 0 ? " none" : service.serviceDescription}
+                            About:${service.description.length === 0 ? " none" : service.description}
                         </p>
 
                         <div class="actions">
@@ -91,25 +92,30 @@ function deleteService(index) {
 
         try {
 
-            const INDEX = parseInt(localStorage.getItem('INDEX'))
+            //projects = JSON.parse(localStorage.getItem('projects')) ?? []
 
-            projects = JSON.parse(localStorage.getItem('projects')) ?? []
+            fetch(`http://localhost:8080/project/all`)
+            .then(response => response.json())
+            .then(projects=>{
 
-            if (!projects) {
+                
+                if (!projects) {
 
-                alert("You don't have any created projects. Let's create one !")
+                    alert("You don't have any created projects !")
 
-                window.location.href = `http://127.0.0.1:3333/NewProject/newproject.html`
-            }
+                    //window.location.href = `http://127.0.0.1:3333/NewProject/newproject.html`
+                }
 
-            let projectToEdit = projects[INDEX]
+                let projectToEdit = projects[PRID]
 
-            fillFields(projectToEdit)
+                fillFields(projectToEdit)
 
-            renderServices(projectToEdit)
+                renderServices(projectToEdit)
 
 
-        } catch (IDNotFoundError) {
+            })
+
+        } catch (error) {
 
             alert("You must select a project to edit. We'll take you there.")
 
