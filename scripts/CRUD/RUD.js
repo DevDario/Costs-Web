@@ -28,13 +28,13 @@ function fetchProjects(){
             <li>
                 <div class="project-card sort-option">
                     <div class="card-conteiner">
-                        <h3 title="${project.name}" class="project-name-label">${project.name.length >= 13 ? project.name.charAt(0).toUpperCase().concat(project.name.charAt(5).toUpperCase() + project.name.charAt(9).toUpperCase() + "...") : project.name}</h3>
+                        <div class="card-header">
+                            <h3 title="${project.name}" class="project-name-label">${project.name.length >= 13 ? project.name.charAt(0).toUpperCase().concat(project.name.charAt(5).toUpperCase() + project.name.charAt(9).toUpperCase() + "...") : project.name}</h3>
+                            
+                            <img src="../../images/eye-icon.png" alt="Click to See Project" class="see-project-icon" id="see-project">
+                        </div>
                         <h5 class="project-budget-label">Budget: U$ ${project.budget}<h5/>
                         <p class="project-category-label">Category:${project.category.toLowerCase()}</p>
-                    
-                        <div class="services">
-                            <p>${project.numServices} Services Added<p>
-                        </div>
 
                         <div class="deadline">
                             <p>${new Date(project.deadline).toLocaleDateString('en-US',{month: 'long', day: 'numeric', year: 'numeric'})}<p>
