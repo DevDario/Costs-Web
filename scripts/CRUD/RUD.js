@@ -30,7 +30,7 @@ function fetchProjects(){
                     <div class="card-conteiner">
                         <div class="card-header">
                             <h3 title="${project.name}" class="project-name-label">${project.name.length >= 13 ? project.name.charAt(0).toUpperCase().concat(project.name.charAt(5).toUpperCase() + project.name.charAt(9).toUpperCase() + "...") : project.name}</h3>
-                            
+
                             <img src="../../images/eye-icon.png" alt="Click to See Project" class="see-project-icon" id="see-project">
                         </div>
                         <h5 class="project-budget-label">Budget: U$ ${project.budget}<h5/>
@@ -43,7 +43,7 @@ function fetchProjects(){
                         <div class="actions">
                             
                             <div class="edit">
-                                <button ${isDeadlineEnded ? "disabled" : ""} id="edit-project-${index}" class="button">Edit <img src="../../images/edit-icon.png" alt="edit icon" /> </button>
+                                <button ${isDeadlineEnded ? "disabled" : ""} id="edit-project-${index}" class="button" onclick="editProject(${index})" >Edit <img src="../../images/edit-icon.png" alt="edit icon" /> </button>
                             </div>
 
                             <div class="delete">
@@ -186,16 +186,27 @@ function deadlineCheck(project) {
 
     } else {
 
-        return false & projectDeadline
+        return false
     }
 }
 
 //EDIT
-function editProject(index) {
+async function editProject(index) {
 
-    projects = getProjectsFromDB()
+    let projectToEdit = {}
 
-    const projectToEdit = projects[index]
+    try {
+        const response = await fetch(`http://localhost:8080/project/${index}`);
+    
+        if (!response.ok) {
+            throw new Error('Something happened ->>',response.text());
+        }
+
+        projectToEdit = await response.json();
+
+    } catch (error) {
+        console.error('Something happened while your fetch operation:', error);
+    }
 
     //stores the project's ID on localStorage for further use in the editing page
     localStorage.setItem('PRID', String(projectToEdit.id))
