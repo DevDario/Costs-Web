@@ -1,6 +1,6 @@
 let projects = []
 let services = []
-const PRID = localStorage.getItem("PRID")
+const POSITION = localStorage.getItem("POSITION")
 const servicesArea = document.getElementById("services-root")
 const conditionalMessage = document.getElementById('conditional')
 
@@ -86,49 +86,25 @@ function deleteService(id) {
         method:"DELETE"
     })
     .then((response)=> response.json())
-    .then((message)=> console.log(`${message}`))
-    .catch((error)=> console.error(`${error}`))
+    .then((data)=> console.log(`${data.message}`))
+    .catch((error)=> console.error(`${error.text}`))
 
     //window.location.reload()
 
 }
 
 
+// loads data about the selected project and fill all form inputs
 (
     function () {
 
-        try {
+        projects = JSON.parse(localStorage.getItem('projects')) ?? []
 
-            //projects = JSON.parse(localStorage.getItem('projects')) ?? []
+        let projectToEdit = projects[POSITION]
 
-            fetch(`http://localhost:8080/project/all`)
-            .then(response => response.json())
-            .then(projects=>{
+        fillFields(projectToEdit)
 
-                
-                if (!projects) {
-
-                    alert("You don't have any created projects !")
-
-                    //window.location.href = `http://127.0.0.1:3333/NewProject/newproject.html`
-                }
-
-                let projectToEdit = projects[PRID]
-
-                fillFields(projectToEdit)
-
-                renderServices(projectToEdit)
-
-
-            })
-
-        } catch (error) {
-
-            alert("You must select a project to edit. We'll take you there.")
-
-            window.location.href = `http://127.0.0.1:3333/ViewProjects/viewprojects.html`
-
-        }
+        renderServices(projectToEdit)
 
     }
 )()
