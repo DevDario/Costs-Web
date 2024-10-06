@@ -67,6 +67,10 @@ window.onload = () => {
 //DELETE
 function deleteProject(id) {
 
+    const isSure = confirm("You sure to delete this project ?")
+
+    if(!isSure===true) return
+
     fetch(`http://localhost:8080/project/del/${id}`,{
         method:"DELETE"
     })
