@@ -17,11 +17,9 @@ function fetchProjects(){
         }
 
     // renders all projects
-    projects.map((project, index) => {
+    projects.map((project) => {
 
         let isDeadlineEnded = deadlineCheck(project)
-
-        index++
 
         root.innerHTML +=
             `
@@ -43,11 +41,11 @@ function fetchProjects(){
                         <div class="actions">
                             
                             <div class="edit">
-                                <button ${isDeadlineEnded ? "disabled" : ""} id="edit-project-${index}" class="button" onclick="editProject(${index})" >Edit <img src="../../images/edit-icon.png" alt="edit icon" /> </button>
+                                <button ${isDeadlineEnded ? "disabled" : ""} id="edit-project-${project.id}" class="button" onclick="editProject(${project.id})" >Edit <img src="../../images/edit-icon.png" alt="edit icon" /> </button>
                             </div>
 
                             <div class="delete">
-                                <button class="button" id="delete-project-${index}" onclick="deleteProject(${index})" >Delete <img src="../../images/delete-icon.png" alt="delete icon" /> </button>
+                                <button class="button" id="delete-project-${project.id}" onclick="deleteProject(${project.id})" >Delete <img src="../../images/delete-icon.png" alt="delete icon" /> </button>
                             </div>
                             
                         </div>
@@ -67,9 +65,9 @@ window.onload = () => {
 }
 
 //DELETE
-function deleteProject(index) {
+function deleteProject(id) {
 
-    fetch(`http://localhost:8080/project/del/${index}`,{
+    fetch(`http://localhost:8080/project/del/${id}`,{
         method:"DELETE"
     })
     .then(response => response.json())
@@ -191,12 +189,12 @@ function deadlineCheck(project) {
 }
 
 //EDIT
-async function editProject(index) {
+async function editProject(id) {
 
     let projectToEdit = {}
 
     try {
-        const response = await fetch(`http://localhost:8080/project/${index}`);
+        const response = await fetch(`http://localhost:8080/project/${id}`);
     
         if (!response.ok) {
             throw new Error('Something happened ->>',response.text());
@@ -212,7 +210,7 @@ async function editProject(index) {
     localStorage.setItem('PRID', String(projectToEdit.id))
 
     //stores the project's position in the array on localStorage for further use in the editing page
-    localStorage.setItem('INDEX', String(index))
+    localStorage.setItem('INDEX', String(id))
 
     window.location.href = "http://127.0.0.1:3333/EditProjects/editProjects.html"
 }
