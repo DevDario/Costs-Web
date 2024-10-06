@@ -2,8 +2,6 @@ const root = document.getElementById('root')
 const conditionalMessage = document.getElementById('conditional')
 const nameSort = document.getElementById('sort-by-name')
 
-let projects
-
 function fetchProjects(){
     fetch('http://localhost:8080/project/all')
     .then(response => response.json())
@@ -15,6 +13,8 @@ function fetchProjects(){
         } else {
             conditionalMessage.style.display = "none"
         }
+
+        setProjectsToDB(projects)
 
     // renders all projects
     projects.map((project) => {
@@ -220,4 +220,4 @@ async function editProject(id) {
 }
 //DB Operations
 const getProjectsFromDB = () => JSON.parse(localStorage.getItem('projects')) ?? []
-const setProjectsToDB = () => localStorage.setItem('projects', JSON.stringify(projects))
+const setProjectsToDB = (projects) => localStorage.setItem('projects', JSON.stringify(projects))
