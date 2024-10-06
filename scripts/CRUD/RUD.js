@@ -14,10 +14,10 @@ function fetchProjects(){
             conditionalMessage.style.display = "none"
         }
 
-        setProjectsToDB(projects)
+        setProjectsToLocalStorage(projects)
 
     // renders all projects
-    projects.map((project) => {
+    projects.map((project,position) => {
 
         let isDeadlineEnded = deadlineCheck(project)
 
@@ -41,7 +41,7 @@ function fetchProjects(){
                         <div class="actions">
                             
                             <div class="edit">
-                                <button ${isDeadlineEnded ? "disabled" : ""} id="edit-project-${project.id}" class="button" onclick="editProject(${project.id})" >Edit <img src="../../images/edit-icon.png" alt="edit icon" /> </button>
+                                <button ${isDeadlineEnded ? "disabled" : ""} id="edit-project-${project.id}" class="button" onclick="editProject(${position})" >Edit <img src="../../images/edit-icon.png" alt="edit icon" /> </button>
                             </div>
 
                             <div class="delete">
@@ -193,31 +193,15 @@ function deadlineCheck(project) {
 }
 
 //EDIT
-async function editProject(id) {
+function editProject(positionOnArray) {
 
-    let projectToEdit = {}
+    localStorage.setItem('POSITION',positionOnArray)
 
-    try {
-        const response = await fetch(`http://localhost:8080/project/${id}`);
-    
-        if (!response.ok) {
-            throw new Error('Something happened ->>',response.text());
-        }
-
-        projectToEdit = await response.json();
-
-    } catch (error) {
-        console.error('Something happened while your fetch operation:', error);
-    }
-
-    //stores the project's ID on localStorage for further use in the editing page
-    localStorage.setItem('PRID', String(projectToEdit.id))
-
-    //stores the project's position in the array on localStorage for further use in the editing page
-    localStorage.setItem('INDEX', String(id))
-
+    // redirecting user to editing page
     window.location.href = "http://127.0.0.1:3333/EditProjects/editProjects.html"
 }
+
+
 //DB Operations
 const getProjectsFromDB = () => JSON.parse(localStorage.getItem('projects')) ?? []
-const setProjectsToDB = (projects) => localStorage.setItem('projects', JSON.stringify(projects))
+const setProjectsToLocalStorage = (projects) => localStorage.setItem('projects', JSON.stringify(projects))
