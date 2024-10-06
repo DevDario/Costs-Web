@@ -41,7 +41,7 @@ function renderServices(projectInfo) {
 
     }
 
-    projectInfo.services.map((service, index) => {
+    projectInfo.services.map((service) => {
         servicesArea.innerHTML +=
             `
                 <div class="service-card card">
@@ -57,7 +57,7 @@ function renderServices(projectInfo) {
 
                         <div class="actions">
                             <div class="delete">
-                                <button onclick="deleteService(${index})" class="button">Delete <img src="../../images/delete-icon.png" alt="delete icon" /> </button>
+                                <button onclick="deleteService(${service.id})" class="button">Delete <img src="../../images/delete-icon.png" alt="delete icon" /> </button>
                             </div>
                         </div> 
                     </div>
@@ -68,21 +68,28 @@ function renderServices(projectInfo) {
 }
 
 
-function deleteService(index) {
+function deleteService(id) {
 
-    const INDEX = parseInt(localStorage.getItem('INDEX'))
+    //const INDEX = parseInt(localStorage.getItem('INDEX'))
 
-    projects[INDEX].projectBudget += projects[INDEX].projectServices[index].serviceBudget
+    //projects[INDEX].projectBudget += projects[INDEX].projectServices[index].serviceBudget
 
-    projects[INDEX].usedBudget -= projects[INDEX].projectServices[index].serviceBudget
+    //projects[INDEX].usedBudget -= projects[INDEX].projectServices[index].serviceBudget
 
-    projects[INDEX].projectServices.splice(index, 1)
+    //projects[INDEX].projectServices.splice(index, 1)
 
-    projects[INDEX].numberOfServices -= 1
+    //projects[INDEX].numberOfServices -= 1
 
-    localStorage.setItem('projects', JSON.stringify(projects))
+    //localStorage.setItem('projects', JSON.stringify(projects))
 
-    window.location.reload()
+    fetch(`http://localhost:8080/project/${PRID}/service/services/${id}`,{
+        method:"DELETE"
+    })
+    .then((response)=> response.json())
+    .then((message)=> console.log(`${message}`))
+    .catch((error)=> console.error(`${error}`))
+
+    //window.location.reload()
 
 }
 
