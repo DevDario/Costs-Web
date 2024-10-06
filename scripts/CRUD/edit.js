@@ -1,5 +1,6 @@
 let projects = []
 let services = []
+let projectToEdit = {}
 const POSITION = localStorage.getItem("POSITION")
 const servicesArea = document.getElementById("services-root")
 const conditionalMessage = document.getElementById('conditional')
@@ -100,7 +101,10 @@ function deleteService(id) {
 
         projects = JSON.parse(localStorage.getItem('projects')) ?? []
 
-        let projectToEdit = projects[POSITION]
+        projectToEdit = projects[POSITION]
+
+        // storing the real id of the project, not his position on the 'projects' array
+        localStorage.setItem('PRID',projectToEdit.id)
 
         fillFields(projectToEdit)
 
@@ -153,22 +157,38 @@ const submitButton = document.getElementById('edit-project').addEventListener('c
 
     event.preventDefault()
 
+    // gets the id of the project to use it on the request URL
+    const projectID = localStorage.getItem('PRID')
+
     //ERROR MESSAGES
     if (!inputs.projectNameInput) alert("Project Name missing !")
     if (!inputs.projectBudgetInput) alert("Project Budget missing !")
     if (inputs.projectCategoryInput === "none") return alert("Project Category missing !")
 
-    const INDEX = parseInt(localStorage.getItem('INDEX'))
+    const body = {
+        name: inputs.projectNameInput.value,
+        budget: parseInt(inputs.projectBudgetInput.value),
+        //TODO: get the selected category from html
+        category: projectToEdit.category,
+    }
 
-    projects[INDEX].projectName = String(inputs.projectNameInput.value)
-    projects[INDEX].projectBudget = parseInt(inputs.projectBudgetInput.value)
-    projects[INDEX].projectCategory = String(inputs.projectCategoryInput.value),
-        projects[INDEX].projectServices = addService(INDEX) || []
-    projects[INDEX].numberOfServices = parseInt(projects[INDEX].projectServices.length)
+    fetch(`http://localhost:8080/project/edit/${projectID}`,{
+        method:"PUT",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify(body),
+    })
+    .then((response)=>{
 
-    localStorage.setItem('projects', JSON.stringify(projects))
+        if(response.ok){
 
-    alert(`Project Updated Successfully !`)
+            alert(`Project Updated Successfully !`)
 
-    window.location.reload()
+        }else{
+            alert("We couldnt update your project. Try to reload the page")
+
+            console.log(`Error Trying to Update -> ${response.text()}`)
+        }
+    })
 })
