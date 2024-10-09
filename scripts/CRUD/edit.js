@@ -4,6 +4,7 @@ let projectToEdit = {}
 const POSITION = localStorage.getItem("POSITION")
 const servicesArea = document.getElementById("services-root")
 const conditionalMessage = document.getElementById('conditional')
+const apiBaseURL = "http://localhost:8080"
 
 function fillFields(projectInfo) {
     //labels
@@ -83,7 +84,7 @@ function deleteService(id) {
 
     //localStorage.setItem('projects', JSON.stringify(projects))
 
-    fetch(`http://localhost:8080/project/${PRID}/service/services/${id}`,{
+    fetch(`${apiBaseURL}/project/${PRID}/service/services/${id}`,{
         method:"DELETE"
     })
     .then((response)=> response.json())
@@ -125,31 +126,50 @@ const inputs = {
 }
 
 
-function addService(INDEX) {
+//TODO: First implement the right logic to create services, then the delete logic 
+function addService() {
 
-    if (parseInt(inputs.projectServiceBudgetInput.value) >= projects[INDEX].projectBudget || parseInt(inputs.projectServiceBudgetInput.value) <= 0) return alert("There's no enough budget for this project")
+    // gets the id of the project to use it on the request URL
+    const projectID = localStorage.getItem('PRID')
 
-    projects[INDEX].projectBudget -= inputs.projectServiceBudgetInput.value
-
-    projects[INDEX].usedBudget += parseInt(inputs.projectServiceBudgetInput.value) || 0
-
-    let service = {
-        serviceName: String(inputs.projectServiceNameInput.value),
-        serviceBudget: parseInt(inputs.projectServiceBudgetInput.value),
-        serviceDescription: String(inputs.projectServiceDescriptionInput.value),
+    const service = {
+        name: String(inputs.projectServiceNameInput.value),
+        budget: parseInt(inputs.projectServiceBudgetInput.value),
+        description: String(inputs.projectServiceDescriptionInput.value),
     }
 
     if (service.serviceName === "" || service.serviceBudget === null || service.serviceDescription === "") {
 
-        return []
+        alert("You need to fill out all fields !")
 
     } else {
 
-        services = projects[INDEX].projectServices
+        fetch(`${apiBaseURL}/project/${projectID}/services/new`,{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(service)
+        })
+        .then((response)=>{
 
-        services.push(service)
+            if(response.ok){
+                alert("New service Added")
+                
+                // redirecting user to view projects page
+                window.location.href = "http://127.0.0.1:3333/ViewProjects/viewprojects.html"
 
-        return services
+            }else{
+
+                if(response.status===400){
+                    alert(`${response.text}`)    
+                }
+
+                alert("We couldnt create the service. Try to reload the page and try again")
+
+                console.log(response.text)
+            }
+        })
     }
 }
 
@@ -172,7 +192,7 @@ const submitButton = document.getElementById('edit-project').addEventListener('c
         category: projectToEdit.category,
     }
 
-    fetch(`http://localhost:8080/project/edit/${projectID}`,{
+    fetch(`${apiBaseURL}/project/edit/${projectID}`,{
         method:"PUT",
         headers:{
             "Content-Type":"application/json"
@@ -191,4 +211,10 @@ const submitButton = document.getElementById('edit-project').addEventListener('c
             console.log(`Error Trying to Update -> ${response.text()}`)
         }
     })
+})
+
+const addServiceButton = document.getElementById('add-service').addEventListener('click', (event)=>{
+    event.preventDefault()
+
+    addService()
 })
