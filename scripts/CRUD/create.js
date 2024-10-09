@@ -1,5 +1,6 @@
 let projects = []
 const createProjectButton = document.getElementById('create-project')
+const apiBaseURL = "http://localhost:8080"
 
 createProjectButton.addEventListener('click', (event) => {
 
@@ -7,24 +8,42 @@ createProjectButton.addEventListener('click', (event) => {
 
     const projectDetails = {
         id:projects.length + 1,
-        projectName: document.getElementById('project-name').value || null,
-        projectBudget: parseInt(document.getElementById('project-budget').value) || null,
-        projectCategory: document.getElementById('category').value || null,
-        numberOfServices: 0,
-        projectServices :[],
-        usedBudget: 0,
-        projectDeadline: setProjectDeadline(),
+        name: document.getElementById('project-name').value,
+        budget: parseInt(document.getElementById('project-budget').value),
+        category: document.getElementById('category').value,
+        usedBudget: 0.0,
+        deadline: setProjectDeadline(),
+        createdAt: new Date().toISOString().replace('Z', '+00:00'),
     }
 
-    if (!projectDetails.projectName)  alert("Project Name missing !")
-    if (!projectDetails.projectBudget)  alert("Project Budget missing !")
-    if (projectDetails.projectCategory === "none")  return alert("Project Category missing !")
-    if(projectDetails.projectDeadline === false) return 
+    if (!projectDetails.name)  alert("Project Name missing !")
+    if (!projectDetails.budget)  alert("Project Budget missing !")
+    if (projectDetails.category === "none")  return alert("Project Category missing !")
+    if(projectDetails.deadline === false) return 
 
-    projects.push(projectDetails)
-    setItensToDB()
+    fetch(`${apiBaseURL}/project/new`,{
+        headers:{
+            "Content-Type":"application/json"
+        },
+        method:"POST",
+        body: JSON.stringify(projectDetails),
+    })
+    .then((response)=>{
+        if(response.ok){
+            alert("Project Created Successfully !")
+        }else{
+            alert("We couldnt create your project. Try to reload and submit again")
 
-    alert("Project Created Successfully !")
+            if(response.status===400){
+                console.log(`something went sounth ! -> ${response.message}`)
+            }
+
+            console.log(`Error -> ${response.message}`)
+        }
+    })
+    .catch((error)=>{
+        console.error(`Catched this -> ${error}`)
+    })
 
 })
 
@@ -41,7 +60,7 @@ function setProjectDeadline(){
 
         if(selectedDate > currentDate){
 
-            return selectedDate.toLocaleDateString('en-US',{month: 'long', day: 'numeric', year: 'numeric'})
+            return selectedDate.toISOString().replace('Z', '+00:00');
             
         }else{
             alert("Please enter a future date")
