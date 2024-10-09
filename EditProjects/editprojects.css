@@ -25,6 +25,11 @@
   gap: 20px;
   justify-content: left;
 }
+.main-section .container .editing-area #add-service {
+  padding: 0;
+  width: 10rem;
+  height: 3rem;
+}
 .main-section .container .services-area {
   display: flex;
   flex-direction: column;
