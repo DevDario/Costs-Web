@@ -72,26 +72,30 @@ function renderServices(projectInfo) {
 
 function deleteService(id) {
 
-    //const INDEX = parseInt(localStorage.getItem('INDEX'))
+    // gets the id of the project to use it on the request URL
+    const projectID = localStorage.getItem('PRID')
 
-    //projects[INDEX].projectBudget += projects[INDEX].projectServices[index].serviceBudget
-
-    //projects[INDEX].usedBudget -= projects[INDEX].projectServices[index].serviceBudget
-
-    //projects[INDEX].projectServices.splice(index, 1)
-
-    //projects[INDEX].numberOfServices -= 1
-
-    //localStorage.setItem('projects', JSON.stringify(projects))
-
-    fetch(`${apiBaseURL}/project/${PRID}/service/services/${id}`,{
+    fetch(`${apiBaseURL}/project/${projectID}/service/services/${id}`,{
         method:"DELETE"
     })
-    .then((response)=> response.json())
-    .then((data)=> console.log(`${data.message}`))
+    //.then((response)=> response.json())
+    .then((data)=> {
+
+        if(data.ok){
+            alert("Service was deleted")
+
+            // redirecting user to editing page
+            window.location.href = "http://127.0.0.1:3333/ViewProjects/viewprojects.html"
+
+        }else{
+            alert("We couldnt delete this service. Try to reload and try again.")
+        }
+
+        //debugging
+        console.log(`${data.message}`)
+    })
     .catch((error)=> console.error(`${error.text}`))
 
-    //window.location.reload()
 
 }
 
