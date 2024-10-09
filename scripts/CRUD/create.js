@@ -13,7 +13,6 @@ createProjectButton.addEventListener('click', (event) => {
         category: document.getElementById('category').value,
         usedBudget: 0.0,
         deadline: setProjectDeadline(),
-        createdAt: new Date().toISOString().replace('Z', '+00:00'),
     }
 
     if (!projectDetails.name)  alert("Project Name missing !")
