@@ -95,7 +95,7 @@ projects.forEach(project => {
 });
 
 const pCountChart = new Chart(charts.projectsGraphic,{
-    type: 'line',
+    type: 'bar',
     data: {
         labels: ['January','February','March','April','May','June','July','August','September','October','November','December'],
         datasets: [
