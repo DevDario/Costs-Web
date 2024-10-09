@@ -126,7 +126,6 @@ const inputs = {
 }
 
 
-//TODO: First implement the right logic to create services, then the delete logic 
 function addService() {
 
     // gets the id of the project to use it on the request URL
