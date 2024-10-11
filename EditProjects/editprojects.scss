@@ -50,6 +50,12 @@ $sm-text:16px;
             flex-direction: column;
             gap: 20px;
             justify-content: left;
+
+            #add-service{
+                padding: 0;
+                width: 10rem;
+                height: 3rem;
+            }
         }
 
         .services-area{

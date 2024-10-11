@@ -1,7 +1,10 @@
 let projects = []
 let services = []
+let projectToEdit = {}
+const POSITION = localStorage.getItem("POSITION")
 const servicesArea = document.getElementById("services-root")
 const conditionalMessage = document.getElementById('conditional')
+const apiBaseURL = "http://localhost:8080"
 
 function fillFields(projectInfo) {
     //labels
@@ -16,20 +19,20 @@ function fillFields(projectInfo) {
     const projectCategoryInput = document.getElementById('category')
 
 
-    projectNameLabel.innerHTML = `Project's Name: ${projectInfo.projectName}`
-    projectBudgetLabel.innerHTML = `Project's Budget: U$ ${projectInfo.projectBudget},00`
-    projectCategoryLabel.innerHTML = `Project's Category: ${projectInfo.projectCategory}`
+    projectNameLabel.innerHTML = `Project's Name: ${projectInfo.name}`
+    projectBudgetLabel.innerHTML = `Project's Budget: U$ ${projectInfo.budget},00`
+    projectCategoryLabel.innerHTML = `Project's Category: ${projectInfo.category}`
     projectUsedBudgetLabel.innerHTML = `Budget Used: U$ ${projectInfo.usedBudget},00`
 
-    projectNameInput.value = `${projectInfo.projectName}`
-    projectBudgetInput.value = `${projectInfo.projectBudget}`
-    projectCategoryInput.value = `${projectInfo.projectCategory}`
+    projectNameInput.value = `${projectInfo.name}`
+    projectBudgetInput.value = `${projectInfo.budget}`
+    projectCategoryInput.value = `${projectInfo.category}`
 
 }
 
 function renderServices(projectInfo) {
 
-    if (projectInfo.projectServices.length === 0) {
+    if (projectInfo.services.length === 0) {
 
         servicesArea.style.justifyContent = "center"
         conditionalMessage.innerText = "No Services Added"
@@ -40,23 +43,23 @@ function renderServices(projectInfo) {
 
     }
 
-    projectInfo.projectServices.map((service, index) => {
+    projectInfo.services.map((service) => {
         servicesArea.innerHTML +=
             `
                 <div class="service-card card">
                     <div class="card-conteiner">
-                        <h3 title="${service.serviceName}" class="service-name-label">
-                            ${service.serviceName.length >= 13 ? service.serviceName.charAt(0).toUpperCase().concat(service.serviceName.charAt(5).toUpperCase() + service.serviceName.charAt(9).toUpperCase() + "...") : service.serviceName}</h3>
+                        <h3 title="${service.name}" class="service-name-label">
+                            ${service.name.length >= 13 ? service.name.charAt(0).toUpperCase().concat(service.name.charAt(5).toUpperCase() + service.name.charAt(9).toUpperCase() + "...") : service.name}</h3>
                         <h5 class="service-budget-label">
-                            Budget: U$ ${service.serviceBudget}
+                            Budget: U$ ${service.budget}
                         <h5/>
                         <p class="service-description-label">
-                            About:${service.serviceDescription.length === 0 ? " none" : service.serviceDescription}
+                            About:${service.description.length === 0 ? " none" : service.description}
                         </p>
 
                         <div class="actions">
                             <div class="delete">
-                                <button onclick="deleteService(${index})" class="button">Delete <img src="../../images/delete-icon.png" alt="delete icon" /> </button>
+                                <button onclick="deleteService(${service.id})" class="button">Delete <img src="../../images/delete-icon.png" alt="delete icon" /> </button>
                             </div>
                         </div> 
                     </div>
@@ -67,55 +70,50 @@ function renderServices(projectInfo) {
 }
 
 
-function deleteService(index) {
+function deleteService(id) {
 
-    const INDEX = parseInt(localStorage.getItem('INDEX'))
+    // gets the id of the project to use it on the request URL
+    const projectID = localStorage.getItem('PRID')
 
-    projects[INDEX].projectBudget += projects[INDEX].projectServices[index].serviceBudget
+    fetch(`${apiBaseURL}/project/${projectID}/service/services/${id}`,{
+        method:"DELETE"
+    })
+    //.then((response)=> response.json())
+    .then((data)=> {
 
-    projects[INDEX].usedBudget -= projects[INDEX].projectServices[index].serviceBudget
+        if(data.ok){
+            alert("Service was deleted")
 
-    projects[INDEX].projectServices.splice(index, 1)
+            // redirecting user to editing page
+            window.location.href = "http://127.0.0.1:3333/ViewProjects/viewprojects.html"
 
-    projects[INDEX].numberOfServices -= 1
+        }else{
+            alert("We couldnt delete this service. Try to reload and try again.")
+        }
 
-    localStorage.setItem('projects', JSON.stringify(projects))
+        //debugging
+        console.log(`${data.message}`)
+    })
+    .catch((error)=> console.error(`${error.text}`))
 
-    window.location.reload()
 
 }
 
 
+// loads data about the selected project and fill all form inputs
 (
     function () {
 
-        try {
+        projects = JSON.parse(localStorage.getItem('projects')) ?? []
 
-            const INDEX = parseInt(localStorage.getItem('INDEX'))
+        projectToEdit = projects[POSITION]
 
-            projects = JSON.parse(localStorage.getItem('projects')) ?? []
+        // storing the real id of the project, not his position on the 'projects' array
+        localStorage.setItem('PRID',projectToEdit.id)
 
-            if (!projects) {
+        fillFields(projectToEdit)
 
-                alert("You don't have any created projects. Let's create one !")
-
-                window.location.href = `http://127.0.0.1:5500/NewProject/newproject.html`
-            }
-
-            let projectToEdit = projects[INDEX]
-
-            fillFields(projectToEdit)
-
-            renderServices(projectToEdit)
-
-
-        } catch (IDNotFoundError) {
-
-            alert("You must select a project to edit. We'll take you there.")
-
-            window.location.href = `http://127.0.0.1:5500/ViewProjects/viewprojects.html`
-
-        }
+        renderServices(projectToEdit)
 
     }
 )()
@@ -132,31 +130,49 @@ const inputs = {
 }
 
 
-function addService(INDEX) {
+function addService() {
 
-    if (parseInt(inputs.projectServiceBudgetInput.value) >= projects[INDEX].projectBudget || parseInt(inputs.projectServiceBudgetInput.value) <= 0) return alert("There's no enough budget for this project")
+    // gets the id of the project to use it on the request URL
+    const projectID = localStorage.getItem('PRID')
 
-    projects[INDEX].projectBudget -= inputs.projectServiceBudgetInput.value
-
-    projects[INDEX].usedBudget += parseInt(inputs.projectServiceBudgetInput.value) || 0
-
-    let service = {
-        serviceName: String(inputs.projectServiceNameInput.value),
-        serviceBudget: parseInt(inputs.projectServiceBudgetInput.value),
-        serviceDescription: String(inputs.projectServiceDescriptionInput.value),
+    const service = {
+        name: String(inputs.projectServiceNameInput.value),
+        budget: parseInt(inputs.projectServiceBudgetInput.value),
+        description: String(inputs.projectServiceDescriptionInput.value),
     }
 
     if (service.serviceName === "" || service.serviceBudget === null || service.serviceDescription === "") {
 
-        return []
+        alert("You need to fill out all fields !")
 
     } else {
 
-        services = projects[INDEX].projectServices
+        fetch(`${apiBaseURL}/project/${projectID}/services/new`,{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(service)
+        })
+        .then((response)=>{
 
-        services.push(service)
+            if(response.ok){
+                alert("New service Added")
+                
+                // redirecting user to view projects page
+                window.location.href = "http://127.0.0.1:3333/ViewProjects/viewprojects.html"
 
-        return services
+            }else{
+
+                if(response.status===400){
+                    alert(`${response.text}`)    
+                }
+
+                alert("We couldnt create the service. Try to reload the page and try again")
+
+                console.log(response.text)
+            }
+        })
     }
 }
 
@@ -164,22 +180,44 @@ const submitButton = document.getElementById('edit-project').addEventListener('c
 
     event.preventDefault()
 
+    // gets the id of the project to use it on the request URL
+    const projectID = localStorage.getItem('PRID')
+
     //ERROR MESSAGES
     if (!inputs.projectNameInput) alert("Project Name missing !")
     if (!inputs.projectBudgetInput) alert("Project Budget missing !")
     if (inputs.projectCategoryInput === "none") return alert("Project Category missing !")
 
-    const INDEX = parseInt(localStorage.getItem('INDEX'))
+    const body = {
+        name: inputs.projectNameInput.value,
+        budget: parseInt(inputs.projectBudgetInput.value),
+        //TODO: get the selected category from html
+        category: projectToEdit.category,
+    }
 
-    projects[INDEX].projectName = String(inputs.projectNameInput.value)
-    projects[INDEX].projectBudget = parseInt(inputs.projectBudgetInput.value)
-    projects[INDEX].projectCategory = String(inputs.projectCategoryInput.value),
-        projects[INDEX].projectServices = addService(INDEX) || []
-    projects[INDEX].numberOfServices = parseInt(projects[INDEX].projectServices.length)
+    fetch(`${apiBaseURL}/project/edit/${projectID}`,{
+        method:"PUT",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify(body),
+    })
+    .then((response)=>{
 
-    localStorage.setItem('projects', JSON.stringify(projects))
+        if(response.ok){
 
-    alert(`Project Updated Successfully !`)
+            alert(`Project Updated Successfully !`)
 
-    window.location.reload()
+        }else{
+            alert("We couldnt update your project. Try to reload the page")
+
+            console.log(`Error Trying to Update -> ${response.text()}`)
+        }
+    })
+})
+
+const addServiceButton = document.getElementById('add-service').addEventListener('click', (event)=>{
+    event.preventDefault()
+
+    addService()
 })
