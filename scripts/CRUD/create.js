@@ -7,7 +7,6 @@ createProjectButton.addEventListener('click', (event) => {
     event.preventDefault()
 
     const projectDetails = {
-        id:projects.length + 1,
         name: document.getElementById('project-name').value,
         budget: parseInt(document.getElementById('project-budget').value),
         category: document.getElementById('category').value,
