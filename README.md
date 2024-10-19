@@ -60,7 +60,7 @@ The Costs Web Platform is a project management tool designed to help users manag
    ```
 
 ## Usage
-- To run the project locally, open the `index.html` file in your web browser.
+- To run the project locally, open the `home.html` file in your web browser.
 - For development, you can run the development server using:
   ```
   yarn dev
