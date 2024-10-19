@@ -2,7 +2,7 @@
   "name": "costs-web",
   "version": "1.0.0",
   "description": "A project managment system",
-  "main": "Login/login.html",
+  "main": "/Auth/login.html",
   "scripts": {
     "test": "jest",
     "build": "webpack --watch"
