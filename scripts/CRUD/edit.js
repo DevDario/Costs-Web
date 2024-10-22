@@ -4,7 +4,7 @@ let projectToEdit = {}
 const POSITION = localStorage.getItem("POSITION")
 const servicesArea = document.getElementById("services-root")
 const conditionalMessage = document.getElementById('conditional')
-const apiBaseURL = "http://localhost:8080"
+const apiBaseURL = "http://localhost:8081"
 
 function fillFields(projectInfo) {
     //labels

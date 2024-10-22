@@ -1,6 +1,6 @@
 let projects = []
 const createProjectButton = document.getElementById('create-project')
-const apiBaseURL = "http://localhost:8080"
+const apiBaseURL = "http://localhost:8081"
 
 createProjectButton.addEventListener('click', (event) => {
 
