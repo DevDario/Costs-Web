@@ -31,7 +31,7 @@ createProjectButton.addEventListener('click', (event) => {
             alert("Project Created Successfully !")
 
             // redirecting user to view projects page
-            window.location.href = "http://127.0.0.1:3333/ViewProjects/viewprojects.html"
+            window.location.href = "http://localhost:3333/ViewProjects/viewprojects.html"
         }else{
             alert("We couldnt create your project. Try to reload and submit again")
 

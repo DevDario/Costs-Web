@@ -198,7 +198,7 @@ function editProject(positionOnArray) {
     localStorage.setItem('POSITION',positionOnArray)
 
     // redirecting user to editing page
-    window.location.href = "http://127.0.0.1:3333/EditProjects/editProjects.html"
+    window.location.href = "http://localhost:3333/EditProjects/editProjects.html"
 }
 
 

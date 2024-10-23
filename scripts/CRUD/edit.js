@@ -85,7 +85,7 @@ function deleteService(id) {
             alert("Service was deleted")
 
             // redirecting user to editing page
-            window.location.href = "http://127.0.0.1:3333/ViewProjects/viewprojects.html"
+            window.location.href = "http://localhost:3333/ViewProjects/viewprojects.html"
 
         }else{
             alert("We couldnt delete this service. Try to reload and try again.")
@@ -160,7 +160,7 @@ function addService() {
                 alert("New service Added")
                 
                 // redirecting user to view projects page
-                window.location.href = "http://127.0.0.1:3333/ViewProjects/viewprojects.html"
+                window.location.href = "http://localhost:3333/ViewProjects/viewprojects.html"
 
             }else{
 
