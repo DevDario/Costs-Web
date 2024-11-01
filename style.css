@@ -275,4 +275,9 @@ textarea {
 .warning .warning-text {
   font-size: 40px;
   align-self: center;
+}
+.warning .warning-description {
+  font-size: 26px;
+  font-family: "Inter";
+  color: var(#0f0f0f);
 }/*# sourceMappingURL=style.css.map */
