@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/DevDario/Costs-Web#readme",
   "dependencies": {
-    "chart.js": "^4.4.1"
+    "chart.js": "^4.4.1",
+    "costs-web": "file:"
   }
 }
