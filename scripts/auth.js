@@ -1,10 +1,11 @@
 const githubLoginButton = document.getElementById("github-login")
 const googleLoginButton = document.getElementById("google-login")
+const authBaseURL = "http://localhost:8081/oauth2/authorization/"
 
 githubLoginButton.addEventListener('click',()=>{
-    alert("github")
+    window.location.href = `${authBaseURL}/github`
 })
 
 googleLoginButton.addEventListener('click',()=>{
-    alert("google")
+    window.location.href = `${authBaseURL}/google`
 })
