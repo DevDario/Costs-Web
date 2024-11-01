@@ -3,7 +3,10 @@ const conditionalMessage = document.getElementById('conditional')
 const nameSort = document.getElementById('sort-by-name')
 
 function fetchProjects(){
-    fetch('http://localhost:8081/project/all')
+    fetch('http://localhost:8081/project/all',{
+        method:"GET",
+        credentials:'include'
+    })
     .then(response => response.json())
     .then(projects =>{
 
@@ -72,7 +75,8 @@ function deleteProject(id) {
     if(!isSure===true) return
 
     fetch(`http://localhost:8081/project/del/${id}`,{
-        method:"DELETE"
+        method:"DELETE",
+        credentials:'include',
     })
     .then(response => response.json())
     .then((responseData)=>{

@@ -25,6 +25,7 @@ createProjectButton.addEventListener('click', (event) => {
         },
         method:"POST",
         body: JSON.stringify(projectDetails),
+        credentials:'include'
     })
     .then((response)=>{
         if(response.ok){

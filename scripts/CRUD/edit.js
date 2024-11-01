@@ -76,7 +76,11 @@ function deleteService(id) {
     const projectID = localStorage.getItem('PRID')
 
     fetch(`${apiBaseURL}/project/${projectID}/service/services/${id}`,{
-        method:"DELETE"
+        method:"DELETE",
+        credentials:'include',
+        headers: {
+        'Content-Type': 'application/json',
+    },
     })
     //.then((response)=> response.json())
     .then((data)=> {
@@ -152,7 +156,8 @@ function addService() {
             headers:{
                 "Content-Type":"application/json"
             },
-            body:JSON.stringify(service)
+            body:JSON.stringify(service),
+            credentials:'include'
         })
         .then((response)=>{
 
@@ -201,6 +206,7 @@ const submitButton = document.getElementById('edit-project').addEventListener('c
             "Content-Type":"application/json"
         },
         body:JSON.stringify(body),
+        credentials:'include'
     })
     .then((response)=>{
 
