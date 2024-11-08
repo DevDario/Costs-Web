@@ -58,7 +58,11 @@ function fetchProjects(){
             `
     })
     })
-    .catch(error => console.error('Error while fetching projects --> \n', error));
+    .catch(error => {
+        alert("We couldn't fetch your projects \n try again later")
+
+        console.error('Error while fetching projects --> \n', error)
+    })
 }
 
 window.onload = () => {
@@ -209,3 +213,4 @@ function editProject(positionOnArray) {
 //DB Operations
 const getProjectsFromDB = () => JSON.parse(localStorage.getItem('projects')) ?? []
 const setProjectsToLocalStorage = (projects) => localStorage.setItem('projects', JSON.stringify(projects))
+const setUserDetailsToLocalStorage = (details) => localStorage.setItem('userDetails',JSON.stringify(details))
