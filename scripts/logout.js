@@ -14,6 +14,7 @@ logoutButton.addEventListener("click",(e)=>{
     })
     .then(response => {
         if (response.ok) {
+            window.localStorage.clear()
             window.location.href = "http://localhost:3333/Auth/login";
         } else {
             console.error("Logout failed", response);
