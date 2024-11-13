@@ -2,7 +2,7 @@
   "name": "costs-web",
   "version": "1.0.0",
   "description": "A project managment system",
-  "main": "Login/login.html",
+  "main": "/Auth/login.html",
   "scripts": {
     "test": "jest",
     "build": "webpack --watch"
@@ -23,13 +23,7 @@
   },
   "homepage": "https://github.com/DevDario/Costs-Web#readme",
   "dependencies": {
-    "chart.js": "^4.4.1"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.24.3",
-    "@babel/preset-env": "^7.24.3",
-    "babel-loader": "^9.1.3",
-    "webpack": "^5.91.0",
-    "webpack-cli": "^5.1.4"
+    "chart.js": "^4.4.1",
+    "costs-web": "file:"
   }
 }

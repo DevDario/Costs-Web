@@ -3,7 +3,10 @@ const conditionalMessage = document.getElementById('conditional')
 const nameSort = document.getElementById('sort-by-name')
 
 function fetchProjects(){
-    fetch('http://localhost:8080/project/all')
+    fetch('http://localhost:8081/project/all',{
+        method:"GET",
+        credentials:'include'
+    })
     .then(response => response.json())
     .then(projects =>{
 
@@ -55,7 +58,11 @@ function fetchProjects(){
             `
     })
     })
-    .catch(error => console.error('Error while fetching projects --> \n', error));
+    .catch(error => {
+        alert("We couldn't fetch your projects \n try again later")
+
+        console.error('Error while fetching projects --> \n', error)
+    })
 }
 
 window.onload = () => {
@@ -71,8 +78,9 @@ function deleteProject(id) {
 
     if(!isSure===true) return
 
-    fetch(`http://localhost:8080/project/del/${id}`,{
-        method:"DELETE"
+    fetch(`http://localhost:8081/project/del/${id}`,{
+        method:"DELETE",
+        credentials:'include',
     })
     .then(response => response.json())
     .then((responseData)=>{
@@ -198,10 +206,11 @@ function editProject(positionOnArray) {
     localStorage.setItem('POSITION',positionOnArray)
 
     // redirecting user to editing page
-    window.location.href = "http://127.0.0.1:3333/EditProjects/editProjects.html"
+    window.location.href = "http://localhost:3333/EditProjects/editProjects.html"
 }
 
 
 //DB Operations
 const getProjectsFromDB = () => JSON.parse(localStorage.getItem('projects')) ?? []
 const setProjectsToLocalStorage = (projects) => localStorage.setItem('projects', JSON.stringify(projects))
+const setUserDetailsToLocalStorage = (details) => localStorage.setItem('userDetails',JSON.stringify(details))

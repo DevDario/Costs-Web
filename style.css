@@ -135,12 +135,15 @@ textarea {
   background-color: #0f0f0f;
   padding: 3em;
   border-right: 4px solid #181818;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .aside-section .container {
   display: flex;
   flex-direction: column;
   align-items: left;
-  justify-content: left;
+  justify-content: space-evenly;
 }
 .aside-section .container .navigation-menu-list {
   display: flex;
@@ -256,4 +259,27 @@ textarea {
   justify-content: space-between;
   align-items: left;
   align-content: left;
+}
+
+.warning {
+  display: flex;
+  flex-direction: column;
+  margin: 20% auto;
+  justify-content: center;
+}
+.warning .warning-image {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  margin-bottom: 1rem;
+  width: 70px;
+  height: 70px;
+}
+.warning .warning-text {
+  align-self: center;
+}
+.warning .warning-description {
+  font-size: 16px;
+  font-family: "Inter";
+  color: var(#0f0f0f);
 }/*# sourceMappingURL=style.css.map */

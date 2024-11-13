@@ -1,0 +1,28 @@
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 10% auto;
+}
+
+.heading {
+  display: flex;
+  margin: 3rem auto;
+  font-size: 64px;
+}
+
+.form-area {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+
+  .form-area-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+
+    button {
+      font-size: 1.3rem;
+    }
+  }
+}

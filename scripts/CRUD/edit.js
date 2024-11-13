@@ -4,7 +4,7 @@ let projectToEdit = {}
 const POSITION = localStorage.getItem("POSITION")
 const servicesArea = document.getElementById("services-root")
 const conditionalMessage = document.getElementById('conditional')
-const apiBaseURL = "http://localhost:8080"
+const apiBaseURL = "http://localhost:8081"
 
 function fillFields(projectInfo) {
     //labels
@@ -75,26 +75,30 @@ function deleteService(id) {
     // gets the id of the project to use it on the request URL
     const projectID = localStorage.getItem('PRID')
 
-    fetch(`${apiBaseURL}/project/${projectID}/service/services/${id}`,{
-        method:"DELETE"
+    fetch(`${apiBaseURL}/project/${projectID}/service/services/${id}`, {
+        method: "DELETE",
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+        },
     })
-    //.then((response)=> response.json())
-    .then((data)=> {
+        //.then((response)=> response.json())
+        .then((data) => {
 
-        if(data.ok){
-            alert("Service was deleted")
+            if (data.ok) {
+                alert("Service was deleted")
 
-            // redirecting user to editing page
-            window.location.href = "http://127.0.0.1:3333/ViewProjects/viewprojects.html"
+                // redirecting user to editing page
+                window.location.href = "http://localhost:3333/ViewProjects/viewprojects.html"
 
-        }else{
-            alert("We couldnt delete this service. Try to reload and try again.")
-        }
+            } else {
+                alert("We couldnt delete this service. Try to reload and try again.")
+            }
 
-        //debugging
-        console.log(`${data.message}`)
-    })
-    .catch((error)=> console.error(`${error.text}`))
+            //debugging
+            console.log(`${data.message}`)
+        })
+        .catch((error) => console.error(`${error.text}`))
 
 
 }
@@ -109,7 +113,7 @@ function deleteService(id) {
         projectToEdit = projects[POSITION]
 
         // storing the real id of the project, not his position on the 'projects' array
-        localStorage.setItem('PRID',projectToEdit.id)
+        localStorage.setItem('PRID', projectToEdit.id)
 
         fillFields(projectToEdit)
 
@@ -147,32 +151,34 @@ function addService() {
 
     } else {
 
-        fetch(`${apiBaseURL}/project/${projectID}/services/new`,{
-            method:"POST",
-            headers:{
-                "Content-Type":"application/json"
+        fetch(`${apiBaseURL}/project/${projectID}/services/new`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
             },
-            body:JSON.stringify(service)
+            body: JSON.stringify(service),
+            credentials: 'include'
         })
-        .then((response)=>{
+            .then((response) => {
 
-            if(response.ok){
-                alert("New service Added")
-                
-                // redirecting user to view projects page
-                window.location.href = "http://127.0.0.1:3333/ViewProjects/viewprojects.html"
+                if (response.ok) {
+                    alert("New service Added")
 
-            }else{
+                    // redirecting user to view projects page
+                    window.location.href = "http://localhost:3333/ViewProjects/viewprojects.html"
 
-                if(response.status===400){
-                    alert(`${response.text}`)    
+                } else {
+
+                    if (response.status === 400) {
+                        alert("Not Enough budget for this service")
+                    }
+
+                    if (response.status === 500) {
+                        alert("We couldnt create the service. Try to reload the page and try again")
+                    }
+
                 }
-
-                alert("We couldnt create the service. Try to reload the page and try again")
-
-                console.log(response.text)
-            }
-        })
+            })
     }
 }
 
@@ -195,28 +201,29 @@ const submitButton = document.getElementById('edit-project').addEventListener('c
         category: projectToEdit.category,
     }
 
-    fetch(`${apiBaseURL}/project/edit/${projectID}`,{
-        method:"PUT",
-        headers:{
-            "Content-Type":"application/json"
+    fetch(`${apiBaseURL}/project/edit/${projectID}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
         },
-        body:JSON.stringify(body),
+        body: JSON.stringify(body),
+        credentials: 'include'
     })
-    .then((response)=>{
+        .then((response) => {
 
-        if(response.ok){
+            if (response.ok) {
 
-            alert(`Project Updated Successfully !`)
+                alert(`Project Updated Successfully !`)
 
-        }else{
-            alert("We couldnt update your project. Try to reload the page")
+            } else {
+                alert("We couldnt update your project. Try to reload the page")
 
-            console.log(`Error Trying to Update -> ${response.text()}`)
-        }
-    })
+                console.log(`Error Trying to Update -> ${response.text()}`)
+            }
+        })
 })
 
-const addServiceButton = document.getElementById('add-service').addEventListener('click', (event)=>{
+const addServiceButton = document.getElementById('add-service').addEventListener('click', (event) => {
     event.preventDefault()
 
     addService()
